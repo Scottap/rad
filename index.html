@@ -28,6 +28,10 @@
 			font-style: italic;
 			font-size: 36px;
 		}
+		form
+		{
+			text-align: center;
+		}
 		</style>
 	</head>
 	<body background="/home/flavio/Escritorio/rad/images/hs-2005-12-b-1440x960_wallpaper.jpg">
@@ -35,8 +39,15 @@
 		<p class="headfont">Registro de Asistencia Dactilar </p>
 		<p><abbr title="Work In Progress">WIP</abbr></p>
 		<br>
-		<p class="up">Username</p>
-		<p class="up">Password</p>
+		<form action="" method="POST">
+			<label for="">Username</label>
+			<input type="text" id="user">
+			<br>
+			<label for="">Password</label>
+			<input type="text" id="pass">
+			<br>
+			<button type="submit">Entrar</button>
+		</form>
 		<!--<p>Iniciar Sesión</p> -->
 		
 	</body>
