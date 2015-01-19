@@ -1,7 +1,10 @@
 body
 {
 	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	background: #ecf0f1;
 }
+/*
 .header-login
 {
 	background: grey;
@@ -15,7 +18,7 @@ body
 	height: 150px;
 	width: 100%;
 }
-
+*/
 .color-bar
 {
 	background-color: #03a9f4;
@@ -23,12 +26,44 @@ body
 
 .entrada
 {
-	border: 9px solid green;
-	width: 21px;
+    background: #4CAF50;/*Google Material Design Color*/
+    width: 16px;
+    height: 16px;
+    display: inline-block;
 }
 
 .salida
 {
-	border: 9px solid #FE580F;
-	width: 21px;
+	background: #FF5722;/*Google Material Design Color*/
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.centrar
+{
+	text-align: center;
+}
+
+.login
+{
+	margin: 1em;
+	background-color: white;
+	padding: 2em;
+	position: relative;
+	border-width: 1px 1px 2px;
+	border-color: #cfd9db #cfd9db #c0cdd1;
+	border-radius: 3px;
+	box-shadow: -1px 4px 39px #888888;
+}
+
+.head-login
+{
+	color: white;
+	text-align: center;
+	padding: 0.2em;
+	background-color: #03a9f4;
+	box-shadow: -1px 0px 4px #888888;
+	position: relative;
+	font-weight: bold;
 }
