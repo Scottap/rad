@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Backend - Login</title>
         <link rel="stylesheet" href="css/foundation.min.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/vendor/modernizr.js"></script>
     </head>
@@ -14,18 +15,17 @@
         </header>
 
         <div class="row">
-            <div class="medium-4 medium-centered columns">
-                <form>
-                    <fieldset>
-                        <legend>Inicio de Sesión</legend>
-                        <label>Usuario
-                            <input type="text" name="username" placeholder="Introduzca su username">
-                        </label>
-                        <label>Contraseña
-                            <input type="password" name="password">
-                        </label>
-                        <a href="backend_home.html" class="button">Iniciar</a>
-                    </fieldset>
+            <div class="medium-6 medium-centered columns">
+                <form class="login">
+                    <h2 class="head-login">Iniciar sesión</h2>
+                    <label>Usuario
+                        <input type="text" name="username" placeholder="Introduzca su username">
+                    </label>
+                    <label>Password
+                        <input type="password"/>
+                    </label>
+                    <small class="error">Errores</small>
+                    <a href="backend_home.html" class="button expand">Iniciar</a>
                 </form>
             </div>
         </div>
