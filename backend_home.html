@@ -38,14 +38,16 @@
                 </section>
             </nav>
         </div>
+
         <header>
             
         </header>
+
         <div class="row">
             <section class="large-12 columns">
                 <h2 class="subheader centrar">Resumen diario</h2>
-                <div><span class="entrada"></span> = Entrada, <span class="salida"></span> = Salida</div>
-                <table width="100%">
+                <div class="leyenda"><span class="entrada"></span> = Entrada, <span class="salida"></span> = Salida</div>
+                <table class="tabla-resumen" width="100%">
                     <thead>
                         <tr>
                             <th width="40"></th>
@@ -123,7 +125,8 @@
         <!-- Other JS plugins can be included here -->
 
         <script>
-            $(document).foundation();
+            //$(document).foundation();
+            $(document).foundation('topbar', 'reflow');
         </script>
     </body>
 </html>
