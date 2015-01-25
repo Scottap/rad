@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>Backend - Agregar Usuario</title>
+	<title>Backend - Reporte</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -62,44 +62,50 @@
 	</nav>
 	<!-- /BARRA DE NAVEGACION -->
 
-	<section >
-		<div class="col-md-8 col-md-offset-2">
-			<form class="form-login">
-				<h2 class="text-center">Nuevo usuario</h2>
-				<div class="alert alert-warning" role="alert">
-					Todos los campos con astericos (*) son obligatorios.
-				</div>
-		  		<div class="form-group">
-		    		<label>Usuario * </label>
-		    		<input type="text" class="form-control" name="usuario" autofocus>
-		  		</div>
-		  		<div class="form-group">
-		    		<label>Nombre *</label>
-		    		<input type="text" class="form-control" name="nombre" >
-		  		</div>
-		  		<div class="form-group">
-		    		<label>Contraseña * </label>
-		    		<input type="password" class="form-control" name="password">
-		  		</div>
-		  		<div class="form-group">
-		    		<label>Repita la contraseña * </label>
-		    		<input type="password" class="form-control" name="repassword">
-		  		</div>
-		  		<div class="form-group">
-		    		<label>Imagen</label>
-		    		<input class="form-control" type="file" name="file_image"/>
-		  		</div>
-		  		<div class="alert alert-danger" role="alert">Error</div>
-		  		<!-- <button type="button" class="btn btn-primary btn-lg btn-block blue-google">Iniciar</button> -->
-				<a href="home.html" class="btn btn-success btn-lg btn-block green-google">Guardar</a>
-			</form>
+	<div class="contaier-fluid">
+		<header class="col-md-12"></header>
+		<div class="col-md-10 col-md-offset-1">
+		   	<div class="panel-body">
+		   		<form class="form-login">
+					<h3 class="text-center"><span class="glyphicon glyphicon-calendar"></span> Reporte</h3>
+		  			<div class="form-group">
+		  				<label><strong>Tipo de reporte </strong></label>
+		  			</div>
+		  			<div class="radio">
+				  		<label>
+				    		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+				    			Diario
+				  		</label>
+					</div>
+					<div class="radio">
+				  		<label>
+				    		<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				    		Mensual
+				    		<div class="mensual">
+				    			<form>
+					    			<div class="form-group">
+							  			<label>Desde</label>
+							  			<input class="form-control" type="date" name="desde" />
+									</div>
+									<div class="form-group">
+							  			<label>Hasta</label>
+							  			<input class="form-control" type="date" name="hasta" />
+									</div>
+									<input type="submit">
+					    		</form>
+				    		</div>
+				  		</label>
+					</div>
+					<a href="home.html" class="btn btn-success btn-lg btn-block green-google">Guardar</a>
+				</form>
+		   	</div>
 		</div>
-	</section>
+	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-  </body>
+    <script src="js/mainApplication.js"></script>
 </body>
 </html>

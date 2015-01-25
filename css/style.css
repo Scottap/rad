@@ -11,7 +11,7 @@ body
 {
 	margin: 1em;
 	background-color: white;
-	padding: 2em;
+	padding: 1em;
 	position: relative;
 	border-width: 1px 1px 2px;
 	border-color: #cfd9db #cfd9db #c0cdd1;
@@ -169,4 +169,17 @@ body
 {
 	background: #B71C1C;
 	border-color: #B71C1C;
+}
+
+.panel-primary>.panel-heading {
+	font-weight: bold;
+	color: white;
+	background: #039BE5;
+	background-color: #039BE5;
+	border-color: #039BE5;
+}
+
+.mensual
+{
+	display: none; /* NO MOSTRAR */
 }
