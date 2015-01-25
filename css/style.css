@@ -164,3 +164,9 @@ body
 {
 	background: #4CAF50;
 }
+
+.red-google, .red-google:hover
+{
+	background: #B71C1C;
+	border-color: #B71C1C;
+}
