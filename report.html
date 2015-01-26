@@ -65,7 +65,7 @@
 	<div class="contaier-fluid">
 		<header class="col-md-12"></header>
 		<div class="col-md-10 col-md-offset-1">
-		   	<div class="panel-body">
+		   	
 		   		<form class="form-login">
 					<h3 class="text-center"><span class="glyphicon glyphicon-calendar"></span> Reporte</h3>
 		  			<div class="form-group">
@@ -79,9 +79,9 @@
 					</div>
 					<div class="radio">
 				  		<label>
-				    		<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				    		<input class="mensual" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
 				    		Mensual
-				    		<div class="mensual">
+				    		<div class="form-mensual">
 				    			<form>
 					    			<div class="form-group">
 							  			<label>Desde</label>
@@ -91,14 +91,37 @@
 							  			<label>Hasta</label>
 							  			<input class="form-control" type="date" name="hasta" />
 									</div>
-									<input type="submit">
 					    		</form>
 				    		</div>
 				  		</label>
+				  		<br>
+					<div class="radio">
+						<label>
+							<input class="employees" type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+							Por empleado	
+						
+							<div class="form-for-employees">
+								<form class>
+									<div class="form-group">
+										<label>Cedula</label>
+										<input class="form-control" type="text" name="cedula"> 
+									</div>
+									<div class="form-group">
+									  	<label>Desde</label>
+									  	<input class="form-control" type="date" name="desde" />
+									</div>
+									<div class="form-group">
+									  	<label>Hasta</label>
+									  	<input class="form-control" type="date" name="hasta" />
+									</div>
+								</form>
+							</div>
+						</label>
 					</div>
-					<a href="home.html" class="btn btn-success btn-lg btn-block green-google">Guardar</a>
+					<a href="home.html" class="btn btn-success btn-lg btn-block green-google"><span class="glyphicon glyphicon-download"></span> Descargar</a>
+					</div>
 				</form>
-		   	</div>
+		   	
 		</div>
 	</div>
 

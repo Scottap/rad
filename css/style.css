@@ -179,7 +179,12 @@ body
 	border-color: #039BE5;
 }
 
-.mensual
+.form-mensual
+{
+	display: none; /* NO MOSTRAR */
+}
+
+.form-for-employees
 {
 	display: none; /* NO MOSTRAR */
 }
