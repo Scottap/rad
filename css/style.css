@@ -1,10 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
+	
 
 body
 {
 	font-size: 16px;
 	font-family: 'Open Sans', sans-serif;
-	background-color: #ECEFF1;
+	background-color: #FAFAFA;
 }
 
 .form-login
@@ -187,4 +189,42 @@ body
 .form-for-employees
 {
 	display: none; /* NO MOSTRAR */
+}
+
+/* Imagen Frontend */
+.db-frontend
+{
+
+}
+/* Imagen Frontend */
+
+h1.sobig {
+
+	font-size: 220px;
+	font-family:"Roboto", sans-serif;
+	font-weight:100;
+	color:#FAFAFA;
+}
+
+p.notsobig {
+	font-size:48px;
+	font-family:"Arial", sans-serif;
+	color:#EEEEEE;
+}
+
+.insert{
+
+	display:inline-block;
+	font-size:36px;
+}
+strong.insert{
+
+	color:#2196F3;
+
+}
+p.insert {
+
+	font-family: "Kozuka Gothic Pro";
+	color:#1A1A1A;
+
 }
