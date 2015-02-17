@@ -4,9 +4,10 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Backend - Empleados</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/icomoon.css" />
 
 </head>
 <body>
@@ -41,12 +42,7 @@
 				            <li><a href="list-employees.html">Ver empleados</a></li>
 			          	</ul>
 			       	</li>
-			       	<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes <span class="caret"></span></a>
-			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="report.html">Completo</a></li>
-				            <li><a href="report-employees.html">Por empleados</a></li>
-			          	</ul>
+				    <li><a href="report.html">Reportes</a></li>
 			       	</li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
@@ -72,10 +68,10 @@
 					<thead>
 	      				<tr class="table-head">
 	        				<th>#</th>
-	        				<th>Usuario</th>
 	        				<th>Nombre</th>
-	        				<th>Correo electronico</th>
+	        				<th>Fecha de Nacimiento</th>
 	        				<th>Departamento</th>
+	        				<th></th>
 	        				<th></th>
 	        				<th></th>
 	      				</tr>
@@ -83,36 +79,33 @@
 	        		<tbody>
 	          			<tr>
 				            <th>1</th>
-				            <td><strong>hecto932</strong></td>
-				            <td>Hector Flores</td>
-				            <td>hecto932@gmail.com</td>
+				            <td>Héctor Flores</td>
+				            <td>20/4/1969 <span class="icon-birthday-cake2 kindablue" title="Es el cumpleaños de Héctor, ahora que lo sabes, deséale un feliz cumpleaños, ¡porque si no es de mala educación!"></span></td>
 				            <td>Apoyo informatico</td> 
 				            <td><a href="update-employees.html" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>       
-				            <td><a href="delete-employees.html" title="Eliminar"><span class="glyphicon glyphicon-trash "></span></a></td>    
+				            <td><a href="delete-employees.html" title="Eliminar"><span class="glyphicon glyphicon-trash "></span></a></td> 
+				            
 	          			</tr>
 	          			<tr>
 				            <th>2</th>
-				            <td><strong>scottap</strong></td>
 				            <td>Flavio Ruiz</td>
-				            <td>scottap@gmail.com</td>
-				            <td>Apoyo informatico</td>
+				            <td>30/5/1997</td>
+				            <td>Apoyo informatico</td>				            
 				            <td><a href="" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>       
 				            <td><a href="" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>
 	          			</tr>
 	          			<tr>
-				            <th>1</th>
-				            <td><strong>alehidalgo</strong></td>
+				            <th>3</th>
 				            <td>Alexandra Hidalgo</td>
-				            <td>aleh@gmail.com</td>
+				            <td>23/07/1997</td>
 				            <td>Apoyo informatico</td>
 				            <td><a href="" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>       
 				            <td><a href="" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>     
 	          			</tr>
 	          			<tr>
-				            <th>1</th>
-				            <td><strong>usuario-x</strong></td>
+				            <th>4</th>
 				            <td>usuariox</td>
-				            <td>x@gmail.com</td>
+				            <td>dd/mm/aaaa</td>
 				            <td>Apoyo informatico</td>
 				            <td><a href="" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>       
 				            <td><a href="" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a></td>

@@ -231,3 +231,16 @@ p.insert {
 #justrad{
 	box-shadow:0px 1px 4px 0px rgba(50, 50, 50, 0.75);
 }
+
+#query
+{
+	display: none;
+}
+
+.kindablue {
+	color: #2196F3;
+}
+
+.centered-at-last {
+	margin: 0 auto;
+}

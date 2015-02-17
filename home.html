@@ -4,9 +4,10 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Backend - Home</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/icomoon.css"/>
 
 </head>
 <body>
@@ -41,12 +42,7 @@
 				            <li><a href="list-employees.html">Ver empleados</a></li>
 			          	</ul>
 			       	</li>
-			       	<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes <span class="caret"></span></a>
-			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="report.html">Completo</a></li>
-				            <li><a href="report-employees.html">Por empleados</a></li>
-			          	</ul>
+				    <li><a href="report.html">Reportes</a></li>
 			       	</li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
@@ -70,7 +66,8 @@
 			<div class="leyenda"><span class="entrada"></span> = Entrada <span class="salida"></span> = Salida</div>
 			<form class="form-inline form-right form-search">
 			  	<div class="form-group">
-			    	<input type="text" class="form-control" id="exampleInputName2" placeholder="Buscador">
+			  		<a id="btn_query" href="#" class="btn btn-success"> Buscar</a>
+			    	<input id="query" type="text" class="form-control" id="exampleInputName2" placeholder="Buscador">
 			  	</div>
 			</form>
 			<div class="table-responsive table-design">
@@ -128,6 +125,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/mainApplication.js"></script>
   </body>
 </body>
 </html>
