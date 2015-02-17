@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>Backend - Eliminar Usuario</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<meta charset="UTF-8">
+	<title>Mi Perfil</title>
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<link rel="stylesheet" href="css/icomoon.css"/>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -55,38 +54,29 @@
   		</div><!-- /.container-fluid -->
 	</nav>
 	<!-- /BARRA DE NAVEGACION -->
-	<section >
-		<div class="col-md-8 col-md-offset-2">
-			<form class="form-login">
-				<h3 class="text-center">Eliminar usuario</h3>
-				<figure class="center-image">
-					<img width="140" src="img/hecto932.jpg" alt="Hector Flores" class="img-circle">
-				</figure>
-		  		<div class="form-group">
-		    		<label>Usuario</label>
-		    		<p>hecto932</p>
-		  		</div>
-		  		<div class="form-group">
-		    		<label>Nombre</label>
-		    		<p>Héctor Flores</p>
-		  		</div>
-		  		<div class="alert alert-danger" role="alert">
-		  			<p>
-		  				Al eliminar este usuario se perderán todos los datos del mismo en la base de datos.
-		  				<strong>¿Está seguro/a que desea eliminar este usuario?</strong>
-		  			</p>
-				</div>
-				<div class="center-image">
-					<a href="list-user.html" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-arrow-left"></span> Volver</a>
-					<a href="list-user.html" class="btn btn-primary btn-lg red-google"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
-				</div>
-			</form>
+	<h1 class="text-center">Mi Perfil</h1>
+	<br>
+	<form action="" class="form-login">
+		<!-- Imagen de perfil -->
+		<div class="container">
+			<img src="img/Profile_pic.jpg" alt="Flavio Ruiz" class="img-responsive img-circle center-block" width="210">
+		</div> 
+		<!-- Imagen de perfil -->
+		<!-- Formulario -->
+		<div class="container">
+			<h3 class="text-center">Nombre de usuario</h3>
+			<p class="text-center">scottap</p>
+			<h3 class="text-center">Nombre</h3>
+			<p class="text-center">Flavio Ruiz</p>
+			<td><a href="" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>       
 		</div>
-	</section>
+		<!-- Formulario -->
+	</form>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/mainApplication.js"></script>	
 </body>
 </html>
