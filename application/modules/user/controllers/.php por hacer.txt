@@ -1,0 +1,11 @@
+.php por hacer
+
+Para el nuevo usuario: new-user.php
+
+Para actualizar usuario: update-user.php
+
+Para borrar usuario: delete-user.php
+
+Para lista de usuarios: user-list.php
+
+para iniciar sesión: login.php

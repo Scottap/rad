@@ -1,0 +1,80 @@
+Base de datos
+==============
+max_user
+
+	-id 
+	-user_limit
+	-create_at
+	-update_at
+
+table max_user
+=============
+1 5 fecha fecha
+
+method
+=======
+	- id
+	- name
+	- create_at
+	- update_at
+
+table method
+============
+1 Sistema de captahuella
+2 Codigo especial
+
+input_method
+	- id
+	- method_id
+	- create_at
+	- update_at
+
+table input_method
+===================
+1 2 
+
+action
+	- id
+	- name
+	- create_at
+	- update_at 
+
+table action
+=============
+1 Entrada 00:00:00 12/12/12 00:00:00 12/12/12 
+2 Salida 00:00:00 12/12/12 00:00:00 12/12/12 
+
+
+Reporte
+	- id 
+	- hour
+	- action_id
+	- empleado_id
+	- create_at
+	- update_at
+
+
+Empleado
+	- id
+	- image
+	- name 
+	- cedula
+	- departamento_id
+	- create_at
+	- update_at
+
+
+Departamento
+	- id
+	- name
+	- create_at
+	- update_at
+
+Usuario
+	- id
+	- image
+	- name
+	- username
+	- password (MD5 o SHA1)
+	- create_at
+	- update_at

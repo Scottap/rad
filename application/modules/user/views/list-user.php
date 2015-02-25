@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title><?php echo $title; ?></title>
+	<link rel="stylesheet" href="http://rad/assets/back/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://rad/assets/back/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="http://rad/assets/back/css/style.css">
+</head>
+	<div class="contaier-fluid">
+		<header class="col-md-12">
+			<h3 class="text-center">Usuarios de Sistema</h3>
+		</header>
+		<dir class="col-md-12">
+			<div class="table-responsive table-design">
+				<?php if(!empty($users)): ?>
+				<table class="table">
+					<thead>
+	      				<tr class="table-head">
+	        				<th>#</th>
+	        				<th>Usuario</th>
+	        				<th>Nombre</th>	        			
+	        				<th></th>
+	        				<th></th>
+	      				</tr>
+	    			</thead>
+	        		<tbody>
+	        		<?php foreach ($user as $key => $value): ?>
+	          			<tr>
+				            <td><?php echo $value['user_id']; ?></td>
+				            <td><strong><?php echo $value['username']?></strong></td>
+				            <td><?php echo $value['name']?></td>			           
+				            <td><a href="http://rad/application/modules/user/views/update-user.php" title="Editar"><span class="glyphicon glyphicon-edit"></span></a></td>       
+				            <td><a href="http://rad/application/modules/user/views/delete-user.php" title="Eliminar"><span class="glyphicon glyphicon-trash "></span></a></td>    
+	          			</tr>
+	          		<?php endforeach; ?>
+	        		</tbody>
+			  	</table>
+			  	<?php else: ?>
+			  		<h3>No hay usuarios</h3>
+				<?php endif; ?>
+			</div>
+		</dir>
+	</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
