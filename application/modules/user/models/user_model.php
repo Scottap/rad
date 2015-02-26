@@ -14,6 +14,20 @@ class User_model extends CI_Model
 		return $query->num_rows() != 0;
 	}
 
+	//ESTA FUNCION DEVUELVE LOS DATOS DE UN USUARIO SEGUN SU USERNAME
+	function getUserData($username)
+	{
+		$query = $this->db->get_where('user', array('username' => $username));
+		return $query->row();
+	}
+
+	//OBTENGO LOS DATOS DEL USUARIO POR EL ID
+	function getUserDataById($user_id)
+	{
+		$query = $this->db->get_where('user', array('id' => $user_id));
+		return $query->row();
+	}
+
 	/*
 	function existingUsername($username)
 	{

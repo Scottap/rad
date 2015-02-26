@@ -17,7 +17,7 @@
 	</div>
 	<section class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<form class="form-login" action="backend/home" method="POST">
+			<form class="form-login" action="usuarios/iniciar-sesion" method="POST">
 				<h2 class="text-center">Iniciar sesión</h2>
 		  		<div class="form-group">
 		    		<label>Usuario</label>

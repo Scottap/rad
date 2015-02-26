@@ -19,6 +19,11 @@ class User extends MX_Controller {
 		return $this->user_model->verifySession($session);	
 	}
 
+	public function getUserDataById($user_id)
+	{
+		return $this->user_model->getUserDataById($user_id);
+	}
+
 
 	public function login()
 	{
@@ -37,29 +42,37 @@ class User extends MX_Controller {
 			//MENSAJES BONITOS
 			$this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">','</div>');
 			
+			//SI LAS VALIDACIONES SON CORRECTAS
 			if($this->form_validation->run($this))
 			{
-				$data['title'] = 'Backend - Lol';
-				$this->load->view('backend/home');
+				$username = $this->input->post('username');
+
+				$userdata = $this->user_model->getUserData($username);
 
 				$cookieData = array
 				(
-					'user_id' => $userData->id
+					'user_id' => $userdata->id
 				);
+
 				$this->session->set_userdata($cookieData);
+
+				redirect('backend');
+			}
+			else // SI LAS VALIDACIONES NO SON CORRECTAS
+			{
+				redirect('backend');
 			}
 		}
 		else
 		{
-			redirect('backend/login');
+			redirect('backend');
 		}
 	}
 
 	public function logout()
 	{
-		$this->session->sess_destroy();
-		$data['title'] = 'Backend - Iniciar Sesión';
-		$this->load->view('backend/login', $data);
+		$this->session->unset_userdata('user_id');
+		redirect('backend');
 	}
 	//Fin Constructor de clase
 

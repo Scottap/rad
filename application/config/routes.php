@@ -51,8 +51,8 @@ $route['usuarios/mostrar/(.*)'] = 'user/show/$1';
 
 //MODELO USUARIOS
 $route['usuarios/iniciar-sesion'] = 'user/login';
+$route['usuarios/cerrar-sesion'] = 'user/logout';
 //Inicio de backend
-$route['backend/inicio'] = 'backend/home';
 
 //-------------/BACKEND---------------------
 
