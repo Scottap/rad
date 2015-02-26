@@ -9,6 +9,8 @@ class Backend extends MX_Controller {
 
 	public function index()
 	{
+		echo "Hola mundo!";
+		die();
 		if($this->session->userdata('user_id'))
 		{
 			$data['title'] = 'Backend - Home';
