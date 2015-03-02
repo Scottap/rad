@@ -28,6 +28,44 @@ class User_model extends CI_Model
 		return $query->row();
 	}
 
+	function insertUser($userData)
+	{
+		$this->db->insert('user', $userData);
+	}
+
+	function getUserDataViaId($user_id)
+	{
+		$data = array(
+			'id' => $user_id
+		);
+		$query = $this->db->get_where('user', $data);
+		return $query->row();
+	}
+
+	function getAllUsersButMe($user_id)
+	{
+		$query = $this->db->where('id !=', $user_id);
+		$query = $this->db->get('user');
+		return $query->result();
+	}
+
+	function getUserDataViaSlug($slug)
+	{
+		$query = $this->db->get_where('user', array('slug'=>$slug));
+		return $query->row();
+	}
+
+	function deleteUserViaSlug($slug)
+	{
+		$this->db->delete('user', array('slug'=>$slug));
+	}
+
+	function updateUser($user_id, $data)
+	{
+		$this->db->where('id', $user_id);
+		$this->db->update('user', $data);
+	}
+
 	/*
 	function existingUsername($username)
 	{
@@ -50,21 +88,12 @@ class User_model extends CI_Model
 		return $query->num_rows();
 	}
 
-	function getUserDataViaId($user_id)
-	{
-		$this->db->get_where('user', array('id' => $user_id));
-		return $query->num_rows();
-	}
+	
 
 	function unexistantName()
 	{
 		$this->db->get_where('user', array('name' => $name));
 		return $query->num_rows() == 0;
-	}
-
-	function insertUser()
-	{
-		$this->db->insert('user', $data);
 	}
 
 	function getAllUsers()
@@ -73,13 +102,6 @@ class User_model extends CI_Model
 		return $query->result();
 	}
 
-	function getAllUsersButMe($user_id)
-	{
-		$this->db->where('id !=', $user_id);
-		$this->db->where('id !=' 1);
-		$query = $this->db->get('user');
-		return $query->result();
-	}
 
 	function existingSlug()
 	{
@@ -87,11 +109,6 @@ class User_model extends CI_Model
 		return $query->num_rows() != 0;
 	}
 
-	function getUserDataViaSlug()
-	{
-		$query = $this->db->get_where('user', array('slug'=>$slug));
-		return $query->row();
-	}
 
 	function duplicatedName($user_id, $name)
 	{
@@ -109,22 +126,14 @@ class User_model extends CI_Model
 		return $query->num_rows() == 0;
 	}
 
-	function updateUser($user_id, $data)
-	{
-		$this->db->where('id', $user_id);
-		$this->db->update('user', $data);
-	}
-
+	
 	function heyItsMe($user_id, $slug)
 	{
 		$query = $this->db->get_where('user', array('id'=>$user_id, 'slug'=>$slug));
 		return $query->num_rows() != 0;
 	}
 
-	function deleteUserViaSlug()
-	{
-		$this->db->delete('user', array('slug'=>$slug));
-	}
+	
 	*/
 }
 

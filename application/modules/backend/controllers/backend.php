@@ -16,7 +16,8 @@ class Backend extends MX_Controller {
 			$data['user_id'] = $this->session->userdata('user_id');
 			$data['userData'] = modules::run('user/getUserDataById', $data['user_id']);
 			//echo "<pre>".print_r($data, true)."</pre>";
-			$this->load->view('home', $data);
+			$data['contenido_principal'] = $this->load->view('home', $data, true);
+			$this->load->view('back/template', $data);
 		}
 		else
 		{

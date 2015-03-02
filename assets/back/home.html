@@ -71,6 +71,9 @@
 			  	</div>
 			</form>
 			<br>
+			<?php if(isset($this->session->flashdata('message'))): ?>
+				<div class="alert alert-success" role="alert"><?php echo $this->session->flashdata('message'); ?></div>
+			<?php endif; ?>
 			<div class="table-responsive table-design">
 				<table class="table">
 					<thead>

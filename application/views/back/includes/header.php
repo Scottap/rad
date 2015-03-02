@@ -26,17 +26,17 @@
             		<span class="icon-bar"></span>
             		<span class="icon-bar"></span>
       			</button>
-      			<a class="navbar-brand" href="home.html">RAD</a>
+      			<a class="navbar-brand" href="home">RAD</a>
     		</div>
     		<!-- Collect the nav links, forms, and other content for toggling -->
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
       			<ul class="nav navbar-nav navbar-right">
-        			<li><a href="home.html">Inicio</a></li>
+        			<li><a href="frontend">Ir a Frontend</a></li>
         			<li class="dropdown">
 			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios <span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="add-user.html">Agregar</a></li>
-				            <li><a href="list-user.html">Ver usuarios</a></li>
+				            <li><a href="usuarios/agregar-usuario">Agregar</a></li>
+				            <li><a href="usuarios/ver-usuarios">Ver usuarios</a></li>
 			          	</ul>
 			       	</li>
 			       	<li class="dropdown">
@@ -47,13 +47,12 @@
 			          	</ul>
 			       	</li>
 				    <li><a href="report.html">Reportes</a></li>
-			       	</li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
 			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Flavio Ruiz <span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="profile.html">Mi perfil</a></li>
-				            <li><a href="index.html">Cerrar sesión</a></li>
+				            <li><a href="usuarios/cerrar-sesion">Cerrar sesión</a></li>
 			          	</ul>
 			       	</li>
       			</ul>

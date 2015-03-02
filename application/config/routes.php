@@ -52,8 +52,15 @@ $route['usuarios/mostrar/(.*)'] = 'user/show/$1';
 //MODELO USUARIOS
 $route['usuarios/iniciar-sesion'] = 'user/login';
 $route['usuarios/cerrar-sesion'] = 'user/logout';
+$route['usuarios/agregar-usuario'] = 'user/newUser';
+$route['usuarios/crear'] = 'user/addUser';
+$route['usuarios/ver-usuarios'] = 'user/allUsers';
+$route['usuarios/eliminar-usuario/(.*)'] = 'user/deleteUserView/$1';
+$route['usuarios/eliminar/(.*)'] = 'user/deleteUser/$1';
+$route['usuarios/perfil/(.*)'] = 'user/updateUserView/$1';
+$route['usuarios/actualizar/(.*)'] = 'user/updateUser/$1';
 //Inicio de backend
-
+$route['home'] = 'backend/index';
 //-------------/BACKEND---------------------
 
 //(:num)
