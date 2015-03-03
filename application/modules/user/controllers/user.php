@@ -151,7 +151,7 @@ class User extends MX_Controller {
 		$data['all_users'] = $this->getAllUsersButMe();
 		$data['contenido_principal'] = $this->load->view('list-user', $data, true);
 		$this->load->view('back/template', $data);
-		echo "<pre> ".print_r($data, true) . "</pre>";
+		//echo "<pre> ".print_r($data, true) . "</pre>";
 	}
 
 	public function getAllUsersButMe()

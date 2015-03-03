@@ -57,8 +57,12 @@ $route['usuarios/crear'] = 'user/addUser';
 $route['usuarios/ver-usuarios'] = 'user/allUsers';
 $route['usuarios/eliminar-usuario/(.*)'] = 'user/deleteUserView/$1';
 $route['usuarios/eliminar/(.*)'] = 'user/deleteUser/$1';
-$route['usuarios/perfil/(.*)'] = 'user/updateUserView/$1';
+$route['usuarios/actualizar-usuario/(.*)'] = 'user/updateUserView/$1';
 $route['usuarios/actualizar/(.*)'] = 'user/updateUser/$1';
+$route['usuarios/perfil/(.*)'] = 'user/profile/$1';
+$route['empleados/agregar'] = 'employee/newEmployeeView';
+$route['empleados/agregar/(.*)'] = 'employee/newEmployee/$1';
+$route['empleados/ver-empleados'] = 'employee/allEmployees';
 //Inicio de backend
 $route['home'] = 'backend/index';
 //-------------/BACKEND---------------------
