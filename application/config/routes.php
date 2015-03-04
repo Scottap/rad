@@ -61,8 +61,8 @@ $route['usuarios/actualizar-usuario/(.*)'] = 'user/updateUserView/$1';
 $route['usuarios/actualizar/(.*)'] = 'user/updateUser/$1';
 $route['usuarios/perfil/(.*)'] = 'user/profile/$1';
 $route['empleados/agregar'] = 'employee/newEmployeeView';
-$route['empleados/agregar/(.*)'] = 'employee/newEmployee/$1';
-$route['empleados/ver-empleados'] = 'employee/allEmployees';
+$route['empleados/agregar-empleado'] = 'employee/newEmployee';
+$route['empleados/ver'] = 'employee/allEmployees';
 //Inicio de backend
 $route['home'] = 'backend/index';
 //-------------/BACKEND---------------------

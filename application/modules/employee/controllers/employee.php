@@ -22,10 +22,10 @@ class Employee extends MX_Controller {
 		{
 			redirect('backend');
 		}
-		echo "<pre> ".print_r($data, true) . "</pre>";
+		//echo "<pre> ".print_r($data, true) . "</pre>";
 	}
 
-	public function newEmployee()
+	public function newEmployee($data)
 	{
 		if(!empty($_POST))
 		{
@@ -40,7 +40,7 @@ class Employee extends MX_Controller {
 
 			if($this->form_validation->run($this) == TRUE)
 			{
-				$dataForDB = array(
+				$employeeDB = array(
 					'name' 			 => $this->input->post('name'),
 					'birthday' 		 => $this->input->post('birthday'),
 					'cedula' 		 => $this->input->post('cedula'),
@@ -51,9 +51,10 @@ class Employee extends MX_Controller {
 					'fingerprint'    => $this->input->post('fingerprint')
 				);
 			}
-			$this->employee_model->insertEmployee($dataForDB);
+			$this->employee_model->insertEmployee($employeeDB);
 			$this->session->set_flashdata('message', '¡Empleado agregado exitosamente!');
 			redirect('backend');
+			echo "<pre> ".print_r($data, true) . "</pre>";
 		}
 		else
 		{
@@ -104,9 +105,9 @@ class Employee extends MX_Controller {
 		$this->load->view('back/template', $data);
 	}
 
-	public function getAllEmployees()
+	public function getAllEmployees($allEmployees)
 	{
 		$employees = $this->user_model->getAllEmployees();
-		$allemployees = objectSQL_to_array($employees);
+		$allEmployees = objectSQL_to_array($employees);
 	}
 }
