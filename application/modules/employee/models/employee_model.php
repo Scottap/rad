@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Employee_model extends CI_Controller {
+class Employee_model extends CI_Model {
 
 	public function __construct()
 	{
@@ -22,8 +22,8 @@ class Employee_model extends CI_Controller {
 	}
 	function getAllDepartments()
 	{
-		$query = $this->db->where('departament');
-		$query = $this->db->get('departament_id');
+		//$this->db->select('id', 'name');
+		$query = $this->db->get('departament');
 		return $query->result();
 	}
 
