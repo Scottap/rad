@@ -10,12 +10,19 @@ class Employee extends MX_Controller {
 
 	public function newEmployeeView()
 	{
-		$user_id = modules::run('user/getSessionId');
-		$data['departament'] = $this->getAllDepartments();
-		$data['employeeData'] = $this->getEmployeeDataFormat($employee_id);
-		$data['title'] = 'Backend - Nuevo Empleado';
-		$data['contenido_principal'] = $this->load->view('add-employee', $data, true);
-		$this->load->view('back/template', $data); 
+		if(modules::run('user/getSessionId'))
+		{
+			$data['departaments'] = $this->getAllDepartments();
+			$data['userData'] = modules::run('user/getUserDataFormat');
+			$data['title'] = 'Backend - Nuevo Empleado';
+			$data['contenido_principal'] = $this->load->view('add-employees', $data, true);
+			$this->load->view('back/template', $data); 	
+		}
+		else
+		{
+			redirect('backend');
+		}
+		echo "<pre> ".print_r($data, true) . "</pre>";
 	}
 
 	public function newEmployee()
@@ -51,17 +58,16 @@ class Employee extends MX_Controller {
 		else
 		{
 			$user_id = modules::run('user/getSessionId');
-			$data['employeeData'] = $this->getEmployeeDataFormat($id);
 			$data['title'] = 'Backend - Nuevo Empleado';
-			$data['contenido_principal'] = $this->load->view('add-employee', $data, true);
+			$data['contenido_principal'] = $this->load->view('add-employees', $data, true);
 			$this->load->view('back/template', $data); 
 		}
 	}
 
-	public function getEmployeeDataFormat($employee_id)
+	public function getEmployeeDataFormat($id)
 	{
-		$data = $this->employee_model->getEmployeeDataViaId($employee_id); 
-		//echo "<pre> ".print_r($data, true) . "</pre>";
+		$data = $this->employee_model->getEmployeeDataViaId($id); 
+		
 		//echo $this->db->last_query();
 		$employeeData = array(
 			'id' => $data->id, 
@@ -78,11 +84,14 @@ class Employee extends MX_Controller {
 		);
 	return $employeeData;
 	}
+
 	public function getAllDepartments()
 	{
 		$query = $this->employee_model->getAllDepartments();
 		$query = objectSQL_to_array($query);
 		return $query;
+		$departaments = $query;
+
 	}
 
 	public function allEmployees()
