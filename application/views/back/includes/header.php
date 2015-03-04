@@ -42,14 +42,14 @@
 			       	<li class="dropdown">
 			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Empleados <span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="add-employees.html">Nuevo empleado</a></li>
-				            <li><a href="list-employees.html">Ver empleados</a></li>
+				            <li><a href="empleados/agregar">Nuevo empleado</a></li>
+				            <li><a href="empleados/ver">Ver empleados</a></li>
 			          	</ul>
 			       	</li>
 				    <li><a href="report.html">Reportes</a></li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Flavio Ruiz <span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $name; ?><span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="profile.html">Mi perfil</a></li>
 				            <li><a href="usuarios/cerrar-sesion">Cerrar sesión</a></li>
