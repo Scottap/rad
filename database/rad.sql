@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-03-2015 a las 05:41:04
+-- Tiempo de generación: 04-03-2015 a las 21:27:08
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `fingerprint` varchar(255) NOT NULL,
   `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `employee`
@@ -94,7 +94,10 @@ INSERT INTO `employee` (`id`, `name`, `birthday`, `slug`, `cedula`, `departament
 (4, 'Kevin Alexander Chourio', '1997-01-01', 'kevin-alexander-chourio', 25471369, 4, NULL, 'K14879', '', '2015-02-08 18:08:57', '2015-03-02 22:17:26'),
 (5, 'Elis Alexander Sánchez', '1997-10-12', 'elis-alexander-sanchez', 26148736, 3, NULL, 'E21496', '', '2015-02-08 18:10:56', '2015-03-02 22:18:20'),
 (6, 'Armando Daniel Fernández', '1996-10-13', 'armando-daniel-fernandez', 24228586, 1, 24, 'A21215', '', '2015-02-08 18:12:53', '2015-03-02 22:18:35'),
-(7, 'Ivan Eduardo Mancebo', '1997-05-18', 'ivan-eduardo-mancebo', 27145639, 1, 31, 'R52165', '', '2015-02-08 18:14:08', '2015-03-02 22:19:03');
+(7, 'Ivan Eduardo Mancebo', '1997-05-18', 'ivan-eduardo-mancebo', 27145639, 1, 31, 'R52165', '', '2015-02-08 18:14:08', '2015-03-02 22:19:03'),
+(8, 'Yosber Josber', '1998-07-17', 'yosber-josber', 4131361, 1, 32, '70150 ', '0', '2015-03-04 11:30:21', '2015-03-04 16:00:21'),
+(9, 'Rosibel nombretukky Bastidas', '1999-03-03', 'rosibel-nombretukky-bastidas', 333666999, 3, 0, '924182', '0', '2015-03-04 11:34:45', '2015-03-04 16:04:45'),
+(10, 'Alirio Gómez', '1997-02-07', 'alirio-gomez', 420666, 4, 0, '732988', '0', '2015-03-04 11:38:11', '2015-03-04 16:08:11');
 
 -- --------------------------------------------------------
 
@@ -283,7 +286,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT de la tabla `employee`
 --
 ALTER TABLE `employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `input_method`
 --
