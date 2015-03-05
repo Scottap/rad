@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-03-2015 a las 21:27:08
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Tiempo de generación: 05-03-2015 a las 19:21:14
+-- Versión del servidor: 5.5.41-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,11 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `action` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `action` varchar(255) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `action`
@@ -48,11 +49,12 @@ INSERT INTO `action` (`id`, `action`, `create_at`, `update_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `departament` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `departament`
@@ -70,7 +72,7 @@ INSERT INTO `departament` (`id`, `name`, `create_at`, `update_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `birthday` date NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -79,9 +81,11 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `hours` int(11) DEFAULT NULL,
   `code` varchar(6) NOT NULL,
   `fingerprint` varchar(255) NOT NULL,
-  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `departament_id` (`departament_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `employee`
@@ -94,10 +98,7 @@ INSERT INTO `employee` (`id`, `name`, `birthday`, `slug`, `cedula`, `departament
 (4, 'Kevin Alexander Chourio', '1997-01-01', 'kevin-alexander-chourio', 25471369, 4, NULL, 'K14879', '', '2015-02-08 18:08:57', '2015-03-02 22:17:26'),
 (5, 'Elis Alexander Sánchez', '1997-10-12', 'elis-alexander-sanchez', 26148736, 3, NULL, 'E21496', '', '2015-02-08 18:10:56', '2015-03-02 22:18:20'),
 (6, 'Armando Daniel Fernández', '1996-10-13', 'armando-daniel-fernandez', 24228586, 1, 24, 'A21215', '', '2015-02-08 18:12:53', '2015-03-02 22:18:35'),
-(7, 'Ivan Eduardo Mancebo', '1997-05-18', 'ivan-eduardo-mancebo', 27145639, 1, 31, 'R52165', '', '2015-02-08 18:14:08', '2015-03-02 22:19:03'),
-(8, 'Yosber Josber', '1998-07-17', 'yosber-josber', 4131361, 1, 32, '70150 ', '0', '2015-03-04 11:30:21', '2015-03-04 16:00:21'),
-(9, 'Rosibel nombretukky Bastidas', '1999-03-03', 'rosibel-nombretukky-bastidas', 333666999, 3, 0, '924182', '0', '2015-03-04 11:34:45', '2015-03-04 16:04:45'),
-(10, 'Alirio Gómez', '1997-02-07', 'alirio-gomez', 420666, 4, 0, '732988', '0', '2015-03-04 11:38:11', '2015-03-04 16:08:11');
+(7, 'Ivan Eduardo Mancebo', '1997-05-18', 'ivan-eduardo-mancebo', 27145639, 1, 31, 'R52165', '', '2015-02-08 18:14:08', '2015-03-02 22:19:03');
 
 -- --------------------------------------------------------
 
@@ -106,11 +107,13 @@ INSERT INTO `employee` (`id`, `name`, `birthday`, `slug`, `cedula`, `departament
 --
 
 CREATE TABLE IF NOT EXISTS `input_method` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `method_id` int(11) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `method_id` (`method_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `input_method`
@@ -127,11 +130,12 @@ INSERT INTO `input_method` (`id`, `method_id`, `create_at`, `update_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `max_user` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_limit` tinyint(4) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `max_user`
@@ -151,11 +155,12 @@ INSERT INTO `max_user` (`id`, `user_limit`, `create_at`, `update_at`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `method` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `create_at` datetime NOT NULL,
-  `update_At` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `update_At` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `method`
@@ -172,13 +177,16 @@ INSERT INTO `method` (`id`, `name`, `create_at`, `update_At`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `report` (
-`id` int(11) NOT NULL,
-  `hour` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hour` datetime NOT NULL,
   `action_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `action_id` (`action_id`),
+  KEY `employee_id` (`employee_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `report`
@@ -194,16 +202,18 @@ INSERT INTO `report` (`id`, `hour`, `action_id`, `employee_id`, `create_at`, `up
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(255) DEFAULT NULL,
   `username` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `right_id` int(11) NOT NULL,
   `password` varchar(255) NOT NULL,
   `slug` varchar(255) DEFAULT NULL,
-  `create_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `create_at` datetime NOT NULL,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `right_id` (`right_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `user`
@@ -217,102 +227,6 @@ INSERT INTO `user` (`id`, `image`, `username`, `name`, `right_id`, `password`, `
 (6, NULL, 'ITempestira', 'Illidan Tempestira', 0, 'rawr1', 'illidan-tempestira', '2015-03-01 22:02:28', '2015-03-02 02:32:28');
 
 --
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `action`
---
-ALTER TABLE `action`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `departament`
---
-ALTER TABLE `departament`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `employee`
---
-ALTER TABLE `employee`
- ADD PRIMARY KEY (`id`), ADD KEY `departament_id` (`departament_id`);
-
---
--- Indices de la tabla `input_method`
---
-ALTER TABLE `input_method`
- ADD PRIMARY KEY (`id`), ADD KEY `method_id` (`method_id`);
-
---
--- Indices de la tabla `max_user`
---
-ALTER TABLE `max_user`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `method`
---
-ALTER TABLE `method`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `report`
---
-ALTER TABLE `report`
- ADD PRIMARY KEY (`id`), ADD KEY `action_id` (`action_id`), ADD KEY `employee_id` (`employee_id`);
-
---
--- Indices de la tabla `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`id`), ADD KEY `right_id` (`right_id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `action`
---
-ALTER TABLE `action`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `departament`
---
-ALTER TABLE `departament`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `employee`
---
-ALTER TABLE `employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT de la tabla `input_method`
---
-ALTER TABLE `input_method`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `max_user`
---
-ALTER TABLE `max_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT de la tabla `method`
---
-ALTER TABLE `method`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `report`
---
-ALTER TABLE `report`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `user`
---
-ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
 -- Restricciones para tablas volcadas
 --
 
@@ -320,20 +234,20 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- Filtros para la tabla `employee`
 --
 ALTER TABLE `employee`
-ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`departament_id`) REFERENCES `departament` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`departament_id`) REFERENCES `departament` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `input_method`
 --
 ALTER TABLE `input_method`
-ADD CONSTRAINT `input_method_ibfk_1` FOREIGN KEY (`method_id`) REFERENCES `method` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `input_method_ibfk_1` FOREIGN KEY (`method_id`) REFERENCES `method` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `report`
 --
 ALTER TABLE `report`
-ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `action` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`action_id`) REFERENCES `action` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
