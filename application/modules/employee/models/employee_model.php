@@ -39,4 +39,15 @@ class Employee_model extends CI_Model {
 		$query = $this->db->get_where('departament', array('id' => $id));
 		return $query->row()->name;
 	}
+
+	function getEmployeeDataViaSlug($slug)
+	{
+		$query = $this->db->get_where('employee', array('slug' => $slug));
+		return $query->row();
+	}
+
+	function deleteEmployeeViaSlug($slug)
+	{
+		$this->db->delete('employee', array('slug' => $slug)); 
+	}
 }

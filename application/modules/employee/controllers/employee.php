@@ -65,27 +65,6 @@ class Employee extends MX_Controller {
 		}
 	}
 
-	/*public function getEmployeeDataFormat($employee_id)
-	{
-		$data = $this->employee_model->getEmployeeDataViaId($employee_id); 
-		
-		//echo $this->db->last_query();
-		$employeeData = array(
-			'id'			 => $data->id, 
-			'name'			 => $data->name,
-			'birthday'		 => $data->birthday,
-			'cedula'		 => $data->cedula,
-			'slug' 			 => $data->slug,
-			'departament_id' => $data->departament_id,
-			'hours' 		 => $data->hours,
-			'code' 			 => $data->code,
-			'fingerprint' 	 => $data->fingerprint,
-			'create_at'		 => $data->create_at,
-			'update_at'		 => $data->update_at
-		);
-	return $employeeData;
-	} */
-
 	public function getAllDepartments()
 	{
 		$query = $this->employee_model->getAllDepartments();
@@ -120,5 +99,23 @@ class Employee extends MX_Controller {
 		$dId = $this->employee_model->getDepartamentNameViaId($dId);
 		$dIdA = SQL_to_array($dId);
 		return $dIdA['name'];
+	}
+
+	public function deleteEmployeeView($slug)
+	{
+		$user_id = modules::run('user/getSessionId');
+		$data['all_employees'] = $this->getAllEmployees();
+		$data['title'] = 'Backend - Eliminar Empleado';
+		$data['employeeData'] = $this->getEmployeeDataViaSlug($slug);
+		$data['contenido_principal'] = $this->load->view('delete-employees', $data, true);
+		$this->load->view('back/template', $data);
+		echo "<pre> ".print_r($data, true) . "</pre>";
+	}
+
+	public function getEmployeeDataViaSlug($slug)
+	{
+		$employeeData = $this->employee_model->getEmployeeDataViaSlug($slug);
+		$employeeData = SQL_to_array($employeeData);
+		return $employeeData;
 	}
 }
