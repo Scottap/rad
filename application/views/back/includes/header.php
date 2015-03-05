@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="assets/back/css/styles.css"/>
 	</head>
 	<body>
+
 	<!-- BARRA DE NAVEGACION -->
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
@@ -49,7 +50,7 @@
 				    <li><a href="report.html">Reportes</a></li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $name; ?><span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mi Usuario <span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="profile.html">Mi perfil</a></li>
 				            <li><a href="usuarios/cerrar-sesion">Cerrar sesión</a></li>

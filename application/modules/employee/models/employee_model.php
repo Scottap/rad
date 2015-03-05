@@ -12,7 +12,7 @@ class Employee_model extends CI_Model {
 		$data = array(
 			'id' => $employee_id
 		);
-		$query = $this->db->get_where('employee', $data);
+		$query = $this->db->get_where('employee', $employee_id);
 		return $query->row();
 	}
 
@@ -27,9 +27,16 @@ class Employee_model extends CI_Model {
 		return $query->result();
 	}
 
-	function getAllEmployees()
+	function allEmployees()
 	{
 		$query = $this->db->get('employee');
 		return $query->result();
+	}
+
+	function getDepartamentNameViaId($id)
+	{
+		//$data = array('id' => $departament_id);
+		$query = $this->db->get_where('departament', array('id' => $id));
+		return $query->row()->name;
 	}
 }

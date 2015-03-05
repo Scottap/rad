@@ -54,7 +54,7 @@ class Employee extends MX_Controller {
 			$this->employee_model->insertEmployee($employeeDB);
 			$this->session->set_flashdata('message', '¡Empleado agregado exitosamente!');
 			redirect('backend');
-			echo "<pre> ".print_r($data, true) . "</pre>";
+			//echo "<pre> ".print_r($data, true) . "</pre>";
 		}
 		else
 		{
@@ -65,49 +65,60 @@ class Employee extends MX_Controller {
 		}
 	}
 
-	public function getEmployeeDataFormat($id)
+	/*public function getEmployeeDataFormat($employee_id)
 	{
-		$data = $this->employee_model->getEmployeeDataViaId($id); 
+		$data = $this->employee_model->getEmployeeDataViaId($employee_id); 
 		
 		//echo $this->db->last_query();
 		$employeeData = array(
-			'id' => $data->id, 
-			'name' => $data->name,
-			'birthday' => $data->birthday,
-			'cedula' => $data->cedula,
-			'slug' => $data->slug,
+			'id'			 => $data->id, 
+			'name'			 => $data->name,
+			'birthday'		 => $data->birthday,
+			'cedula'		 => $data->cedula,
+			'slug' 			 => $data->slug,
 			'departament_id' => $data->departament_id,
-			'hours' => $data->hours,
-			'code' => $data->code,
-			'fingerprint' => $data->fingerprint,
-			'create_at' => $data->create_at,
-			'update_at' => $data->update_at
+			'hours' 		 => $data->hours,
+			'code' 			 => $data->code,
+			'fingerprint' 	 => $data->fingerprint,
+			'create_at'		 => $data->create_at,
+			'update_at'		 => $data->update_at
 		);
 	return $employeeData;
-	}
+	} */
 
 	public function getAllDepartments()
 	{
 		$query = $this->employee_model->getAllDepartments();
 		$query = objectSQL_to_array($query);
 		return $query;
-		$departaments = $query;
-
 	}
 
 	public function allEmployees()
 	{
 		$user_id = modules::run('user/getSessionId');
-		$data['employeeData'] = $this->getEmployeeDataFormat($employee_id);
-		$data['title'] = 'Backend - Lista de Empleados';
+		//$data['employeeData'] = $this->getEmployeeDataFormat($employee_id);
 		$data['all_employees'] = $this->getAllEmployees();
+		foreach ($data['all_employees'] as $employee => $value) {
+			$value['department_name'] = $this->departamentViaId($value['departament_id']);
+		}
+		$data['departaments'] = $this->getAllDepartments();
+		$data['title'] = 'Backend - Lista de Empleados';
 		$data['contenido_principal'] = $this->load->view('list-employees', $data, true);
 		$this->load->view('back/template', $data);
+		echo "<pre> ".print_r($data, true) . "</pre>";
 	}
 
-	public function getAllEmployees($allEmployees)
+	public function getAllEmployees()
 	{
-		$employees = $this->user_model->getAllEmployees();
+		$employees = $this->employee_model->allEmployees();
 		$allEmployees = objectSQL_to_array($employees);
+		return $allEmployees;
+	}
+
+	public function departamentViaId($dId)
+	{
+		$dId = $this->employee_model->getDepartamentNameViaId($dId);
+		$dIdA = SQL_to_array($dId);
+		return $dIdA['name'];
 	}
 }
