@@ -49,4 +49,10 @@ class Employee_model extends CI_Model {
 	{
 		$this->db->delete('employee', array('slug' => $slug)); 
 	}
+
+	function updateUserViaSlug($slug)
+	{
+		$this->db->update('employee', array('slug') => $slug));
+	}
+
 }

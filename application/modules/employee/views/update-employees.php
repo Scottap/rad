@@ -12,30 +12,26 @@
 <body>
 	<section>
 		<div class="col-md-8 col-md-offset-2">
-			<form class="form-login">
-				<h3 class="text-center">Actualizar a <?php echo $data['name']; ?></h3>
+			<form class="form-login" method="POST" action="empleados/actualizar">
+				<h3 class="text-center">Actualizar al empleado <?php echo $employeeData['name']; ?></h3>
 				<div class="alert alert-warning" role="alert">
 				</div>
-				<figure class="center-image">
-					<img width="140" src="img/user.png" alt="Hector Flores" class="img-circle">
-				</figure>
 		  		<div class="form-group">
-		    		<label>Usuario</label>
-		    		<input type="text" class="form-control" name="usuario" value="hecto932" autofocus>
+		    		<label>Nombre</label>
+		    		<input type="text" class="form-control" name="nombre" value="<?php echo set_value('name'); ?>" focused>
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Departamento</label>
-		    		<select class="form-control" name="departamento">
+		    		<select class="form-control" name="departament_id">
 		    			<option value="">Seleccione</option>
+		    			<?php foreach($departaments as $key => $value): ?>
+		    				<option value="<?php echo $value['id']; ?> <?php set_value('departament_id'); ?>"><?php echo $employeeData['name']; ?>	</option>
+		    			<?php endforeach; ?>
 		    		</select>
 		  		</div>
 		  		<div class="form-group">
-		    		<label>Nombre</label>
-		    		<input type="text" class="form-control" name="nombre" value="Hector Flores">
-		  		</div>
-		  		<div class="form-group">
 		    		<label>Cedula</label>
-		    		<input type="text" class="form-control" name="cedula" value="20162504">
+		    		<input type="text" class="form-control" name="cedula" value="<?php set_value('cedula'); ?>">
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Imagen</label>

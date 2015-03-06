@@ -63,8 +63,10 @@ $route['usuarios/perfil/(.*)'] = 'user/profile/$1';
 $route['empleados/agregar'] = 'employee/newEmployeeView';
 $route['empleados/agregar-empleado'] = 'employee/newEmployee';
 $route['empleados/ver'] = 'employee/allEmployees';
-$route['empleados/eliminar/(.*)'] = 'employee/deleteEmployeeView';
+$route['empleados/eliminar/(.*)'] = 'employee/deleteEmployeeView/$1';
 $route['empleados/eliminar'] = 'employee/deleteEmployee';
+$route['empleados/actualizar/(.*)'] = 'employee/updateEmployeeView/$1';
+$route['empleeados/actualizar'] = 'employee/updateEmployee';
 //Inicio de backend
 $route['home'] = 'backend/index';
 //-------------/BACKEND---------------------

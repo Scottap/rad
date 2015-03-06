@@ -103,7 +103,7 @@ class Employee extends MX_Controller {
 	public function deleteEmployeeView($slug)
 	{
 		$user_id = modules::run('user/getSessionId');
-		$data['all_employees'] = $this->getAllEmployees();
+		$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 		$data['title'] = 'Backend - Eliminar Empleado';
 		$data['employeeData'] = $this->getEmployeeDataViaSlug($slug);
 		$data['contenido_principal'] = $this->load->view('delete-employees', $data, true);
@@ -116,5 +116,24 @@ class Employee extends MX_Controller {
 		$employeeData = $this->employee_model->getEmployeeDataViaSlug($slug);
 		$employeeData = SQL_to_array($employeeData);
 		return $employeeData;
+	}
+
+	public function deleteEmployee($slug)
+	{
+		$this->employee_model->deleteEmployeeViaSlug($slug);
+	}
+
+	public function updateEmployeeView($slug)
+	{
+		$user_id = modules::run('user/getSessionId');
+		$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+		$data['employeeData'] = $this->getEmployeeDataViaSlug($slug);
+		$data['contenido_principal'] = $this->load->view('update-employees', $data, true);
+		$this->load->view('back/template', $data);
+	}
+
+	public function updateEmployee($slug)
+	{
+		$this->employee_model->updateEmployeeViaSlug($slug);
 	}
 }
