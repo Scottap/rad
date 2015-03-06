@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" href="assets/back/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="assets/back/css/bootstrap-theme.min.css"/>
-	<link rel="stylesheet" href="assets/back/css/style.css"/>
-	<link rel="stylesheet" href="assets/back/css/icomoon.css"/>
-
-</head>
-<body>
 	<div class="contaier-fluid">
 		<header class="col-md-12">
 			<h1 class="text-center">Registro diario</h1>
@@ -76,11 +64,3 @@
 		</dir>
 	</div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/back/js/bootstrap.min.js"></script>
-    <script src="assets/back/js/mainApplication.js"></script>
-  </body>
-</body>
-</html>

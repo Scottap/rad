@@ -8,11 +8,9 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<title><?php echo $title; ?></title>
-		<!-- Bootstrap core CSS -->
-		<link href="assets/back/css/bootstrap.min.css" rel="stylesheet">
-		<!-- Custom styles for this template -->
-		<link href="assets/back/css/offcanvas.css" rel="stylesheet">
-		<link rel="stylesheet" href="assets/back/css/styles.css"/>
+		<link rel="stylesheet" href="assets/back/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/back/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="assets/back/css/style.css">
 	</head>
 	<body>
 
@@ -50,7 +48,7 @@
 				    <li><a href="report.html">Reportes</a></li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mi Usuario <span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $userData['name']; ?><span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="profile.html">Mi perfil</a></li>
 				            <li><a href="usuarios/cerrar-sesion">Cerrar sesión</a></li>

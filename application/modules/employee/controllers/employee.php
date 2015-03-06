@@ -75,16 +75,16 @@ class Employee extends MX_Controller {
 	public function allEmployees()
 	{
 		$user_id = modules::run('user/getSessionId');
-		//$data['employeeData'] = $this->getEmployeeDataFormat($employee_id);
+		$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 		$data['all_employees'] = $this->getAllEmployees();
 		foreach ($data['all_employees'] as $employee => $value) {
-			$value['department_name'] = $this->departamentViaId($value['departament_id']);
+			$data['all_employees'][$employee]['department_name'] = $this->getDepartamentNameViaId($value['departament_id']);
 		}
 		$data['departaments'] = $this->getAllDepartments();
 		$data['title'] = 'Backend - Lista de Empleados';
 		$data['contenido_principal'] = $this->load->view('list-employees', $data, true);
 		$this->load->view('back/template', $data);
-		echo "<pre> ".print_r($data, true) . "</pre>";
+		
 	}
 
 	public function getAllEmployees()
@@ -94,11 +94,10 @@ class Employee extends MX_Controller {
 		return $allEmployees;
 	}
 
-	public function departamentViaId($dId)
+	public function getDepartamentNameViaId($dId)
 	{
-		$dId = $this->employee_model->getDepartamentNameViaId($dId);
-		$dIdA = SQL_to_array($dId);
-		return $dIdA['name'];
+		return $this->employee_model->getDepartamentNameViaId($dId);
+	
 	}
 
 	public function deleteEmployeeView($slug)

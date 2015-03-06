@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title><?php echo $title; ?></title>
-	<link rel="stylesheet" href="assets/back/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="assets/back/css/bootstrap-theme.min.css" />
-	<link rel="stylesheet" href="assets/back/css/style.css" />
-	<link rel="stylesheet" href="assets/back/css/icomoon.css" />
-</head>
-<body>
 	<div class="container-fluid">
 		<header class="col-md-12">
 			<h3 class="text-center">Empleados</h3>
 		</header>
-		<dir class="col-md-12">
+		<div class="col-md-12">
 			<div class="table-responsive table-design">
 				<?php if(!empty($all_employees)): ?>
 				<table class="table">
@@ -52,11 +40,5 @@
 	        		</tbody>
 			  	</table>
 			</div>
-		</dir>
+		</div>
 	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html>

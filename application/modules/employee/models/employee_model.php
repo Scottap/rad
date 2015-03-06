@@ -22,7 +22,6 @@ class Employee_model extends CI_Model {
 	}
 	function getAllDepartments()
 	{
-		//$this->db->select('id', 'name');
 		$query = $this->db->get('departament');
 		return $query->result();
 	}
