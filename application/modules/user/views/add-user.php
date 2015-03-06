@@ -1,11 +1,3 @@
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title><?php echo $title; ?></title>
-	<link rel="stylesheet" href="http://rad/assets/back/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://rad/assets/back/css/bootstrap-theme.css">
-	<link rel="stylesheet" href="http://rad/assets/back/css/style.css">
-</head>
-<body>
 	<section>
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-login" action="usuarios/crear" method="POST">
@@ -15,19 +7,23 @@
 				</div>
 		  		<div class="form-group">
 		    		<label>Usuario * </label>
-		    		<input type="text" class="form-control" name="username" value="<?php echo set_value('username'); ?>" autofocus required>
+		    		<input type="text" class="form-control" name="username" value="<?php echo set_value('username'); ?>" autofocus>
+		    		<?php echo form_error('username'); ?>
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Nombre *</label>
-		    		<input type="text" class="form-control" name="name" value="<?php echo set_value('name'); ?>" required>
+		    		<input type="text" class="form-control" name="name" value="<?php echo set_value('name'); ?>" >
+		  			<?php echo form_error('name'); ?>
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Contraseña * </label>
-		    		<input type="password" class="form-control" name="password" value="<?php echo set_value('password'); ?>" required>
+		    		<input type="password" class="form-control" name="password" value="<?php echo set_value('password'); ?>" >
+		  			<?php echo form_error('password'); ?>
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Repita la contraseña * </label>
-		    		<input type="password" class="form-control" name="repassword" required>
+		    		<input type="password" class="form-control" name="repassword">
+		  			<?php echo form_error('repassword'); ?>
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Imagen</label>
@@ -38,10 +34,3 @@
 			</form>
 		</div>
 	</section>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-</body>
-</html>

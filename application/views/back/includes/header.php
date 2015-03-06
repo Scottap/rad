@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="assets/back/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/back/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="assets/back/css/style.css">
+		<link rel="stylesheet" href="assets/back/css/icomoon.css">
 	</head>
 	<body>
 

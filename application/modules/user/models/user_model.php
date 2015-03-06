@@ -66,6 +66,18 @@ class User_model extends CI_Model
 		$this->db->update('user', $data);
 	}
 
+	function getUserDataFormatViaId($userData_id)
+	{
+		$query = $this->db->get_where('user', array('id'=>$userData_id));
+		return $query->row();
+	}
+
+	function validPassword($data)
+	{
+		$query = $this->db->get_where('user', $data);
+		return $query->num_rows() != 0;
+	}
+
 	/*
 	function existingUsername($username)
 	{

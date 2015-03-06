@@ -25,7 +25,7 @@ class Employee extends MX_Controller {
 		//echo "<pre> ".print_r($data, true) . "</pre>";
 	}
 
-	public function newEmployee($data)
+	public function newEmployee()
 	{
 		if(!empty($_POST))
 		{
@@ -50,18 +50,19 @@ class Employee extends MX_Controller {
 					'code' 			 => $this->input->post('code'),
 					'fingerprint'    => $this->input->post('fingerprint')
 				);
+					$this->employee_model->insertEmployee($employeeDB);
+					$this->session->set_flashdata('message', '¡Empleado agregado exitosamente!');
+					redirect('backend');
 			}
-			$this->employee_model->insertEmployee($employeeDB);
-			$this->session->set_flashdata('message', '¡Empleado agregado exitosamente!');
-			redirect('backend');
+			else
+			{
+				$user_id = modules::run('user/getSessionId');
+				$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+				$data['title'] = 'Backend - Nuevo Empleado';
+				$data['contenido_principal'] = $this->load->view('add-employees', $data, true);
+				$this->load->view('back/template', $data); 
+			}
 			//echo "<pre> ".print_r($data, true) . "</pre>";
-		}
-		else
-		{
-			$user_id = modules::run('user/getSessionId');
-			$data['title'] = 'Backend - Nuevo Empleado';
-			$data['contenido_principal'] = $this->load->view('add-employees', $data, true);
-			$this->load->view('back/template', $data); 
 		}
 	}
 
@@ -115,12 +116,14 @@ class Employee extends MX_Controller {
 	{
 		$employeeData = $this->employee_model->getEmployeeDataViaSlug($slug);
 		$employeeData = SQL_to_array($employeeData);
+		$employeeData['departament_name'] = $this->getDepartamentNameViaId($employeeData['departament_id']);
 		return $employeeData;
 	}
 
 	public function deleteEmployee($slug)
 	{
 		$this->employee_model->deleteEmployeeViaSlug($slug);
+		return('backend');
 	}
 
 	public function updateEmployeeView($slug)
@@ -128,12 +131,64 @@ class Employee extends MX_Controller {
 		$user_id = modules::run('user/getSessionId');
 		$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 		$data['employeeData'] = $this->getEmployeeDataViaSlug($slug);
+		$data['departaments'] = $this->getAllDepartments();
+		//echo "<pre> ".print_r($data, true) . "</pre>";
+		//die();
+		$data['title'] = 'Backend - Actualizar Empleado';
 		$data['contenido_principal'] = $this->load->view('update-employees', $data, true);
 		$this->load->view('back/template', $data);
 	}
 
-	public function updateEmployee($slug)
+	public function getEmployeeDataViaId($employee_id)
 	{
-		$this->employee_model->updateEmployeeViaSlug($slug);
+		$employeeData = $this->employee_model->getEmployeeDataViaId($employee_id);
+		$employeeData = SQL_to_array($employeeData);
+		$employeeData['departament_name'] = $this->getDepartamentNameViaId($employeeData['departament_id']);
+		return $employeeData;
 	}
+
+	public function updateEmployee()
+	{
+		if(!empty($_POST))
+		{
+			$this->form_validation->set_rules('employee_id','id empleado', 'required');
+			$this->form_validation->set_rules('nombre','Nombre','required');
+			$this->form_validation->set_rules('birthday', "Fecha de Nacimiento", 'required');
+			$this->form_validation->set_rules('departament_id','Departamento', 'required');
+			$this->form_validation->set_rules('cedula','Cedula', 'required');
+
+			$this->form_validation->set_message('required','%s es requerido.');
+
+			if($this->form_validation->run($this))
+			{
+				$employee_id = $this->input->post('employee_id');
+				$data = array(
+					'name' => $this->input->post('nombre'),
+					'birthday' => $this->input->post('birthday'),
+					'departament_id' => $this->input->post('departament_id'),
+					'cedula' => $this->input->post('cedula')
+				);
+
+				$this->employee_model->updateEmployee($employee_id, $data);
+
+				redirect('empleados/ver');
+			}
+			else
+			{
+				$employee_id = $this->input->post('employee_id');
+				$user_id = modules::run('user/getSessionId');
+				$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+				$data['employeeData'] = $this->getEmployeeDataViaId($employee_id);
+				$data['departaments'] = $this->getAllDepartments();
+				$data['title'] = 'Backend - Actualizar Empleado';
+				$data['contenido_principal'] = $this->load->view('update-employees', $data, true);
+				$this->load->view('back/template', $data);
+			}
+		}
+		else
+		{
+			redirect('backend');
+		}
+	}
+
 }

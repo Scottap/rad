@@ -139,7 +139,7 @@ class User extends MX_Controller {
 			else
 			{
 				$user_id = $this->getSessionId();
-				$data['userData'] = $this->getUserDataFormat($id);
+				$data['userData'] = $this->getUserDataFormat($user_id);
 				$data['title'] = 'Backend - Nuevo Usuario';
 				$data['contenido_principal'] = $this->load->view('add-user', $data, true);
 				$this->load->view('back/template', $data); 
@@ -207,39 +207,67 @@ class User extends MX_Controller {
 		$this->load->view('back/template', $data);
 	}
 
-	public function updateUser($slug)
+	function getUserDataFormatViaId($userData_id)
 	{
+		$query = $this->user_model->getUserDataFormatViaId($userData_id);
+		$query = SQL_to_array($query);
+		return $query;
+	}
+
+	public function validPassword()
+	{
+		$data = array(
+			'id' => $user_id = $this->input->post('user_id'),
+			'password' => $this->input->post('password')
+		);
+
+		return $this->user_model->validPassword($data);
+	}
+
+	public function updateUser()
+	{
+		
 		if(!empty($_POST))
 		{
-			$user_id = $this->session->userdata('user_id');
-			$userData = $this->getUserDataViaId($user_id);
-			$this->form_validation->set_rules('username', 'Nombre de Usuario', 'trim|callback_existingUsername');
+			$this->form_validation->set_rules('username', 'Nombre de Usuario', 'required|trim');
 			
 			if( !empty($_POST['password']) || !empty($_POST['newPass']) || !empty($_POST['newPass_confirmation']) )
 			{
-				$this->form_validation->set_rules('password', 'Contraseña', 'required|trim|xss_clean|callback_validChange');
+				$this->form_validation->set_rules('password', 'Contraseña', 'required|trim|xss_clean|callback_validPassword');
 				$this->form_validation->set_rules('newPass', 'Nueva Contraseña', 'required|trim|xss_clean');
 				$this->form_validation->set_rules('newPass_confirmation', 'Confirme el cambio de contraseña', 'required|trim|xss_clean|matches[newPass]');
 			}
 
 
 			$this->form_validation->set_message('required', '%s es requerido');
-			$this->form_validation->set_message('validChange', 'La contraseña que quiere cambiar es incorrecta');
+			$this->form_validation->set_message('validPassword', '%s incorrecta.');
 			$this->form_validation->set_message('matches', '%s no coincide con la contraseña con la que quiere cambiar');
 
 			if($this->form_validation->run($this))
 			{
-				$data['username'] = $this->input->post('username');
-				$password = sha1($this->input->post('password'));
-				
-				if($userData->password == $password && $this->input->post('newPass') == $this->input->post('newPass_confirmation'))
+				$user_id = $this->input->post('user_id');
+				$data = array(
+					'username' => $this->input->post('username')
+				);
+
+				if($this->validPassword() && $this->input->post('newPass') == $this->input->post('newPass_confirmation'))
 				{
-					$data['password'] = sha1($this->input->post('newPass_confirmation'));
+					$data['password'] = $this->input->post('newPass_confirmation');
 				}
-				echo "<pre> ".print_r($data, true) . "</pre>";
 				$this->user_model->updateUser($user_id, $data);
 				$this->session->set_flashdata('message', '¡Actualización de datos exitosa!');
-				redirect('user/allUsers');
+				redirect('usuarios/ver-usuarios');
+			}
+			else
+			{
+				$userData_id = $this->input->post('user_id');
+				$user_id = $this->getSessionId();
+				$data['userData'] = $this->getUserDataFormat($user_id);
+				$data['title'] = 'Backend - Actualizar Usuario';
+				$data['user'] = $this->getUserDataFormatViaId($userData_id);
+				$data['contenido_principal'] = $this->load->view('update-user', $data, true);
+				echo "<pre> ".print_r($data, true) . "</pre>";
+				$this->load->view('back/template', $data);
 			}
 		}
 		else
@@ -248,7 +276,7 @@ class User extends MX_Controller {
 			$this->session->set_flashdata('password', form_error('password'));
 			$this->session->set_flashdata('newPass', form_error('newPass'));
 			$this->session->set_flashdata('newPass_confirmation', form_error('newPass_confirmation'));
-			redirect('user/profile', 'refresh');
+			redirect('usuarios/actualizar/(.*)', 'refresh');
 		}
 
 
@@ -263,21 +291,22 @@ class User extends MX_Controller {
 
 	public function getUserDataFormat($id)
 	{
-		$data = $this->user_model->getUserDataViaId($id); 
+		$query = $this->user_model->getUserDataViaId($id); 
 		//echo "<pre> ".print_r($data, true) . "</pre>";
+		$userData = SQL_to_array($query);
 		//echo $this->db->last_query();
-		$userData = array(
-			'id' => $data->id, 
-			'username' => $data->username,
-			'name' => $data->name,
-			'slug' => $data->slug,
-			'image' => $data->image,
-			'create_at' => $data->create_at,
-			'update_at' => $data->update_at
-		);
-	return $userData;
+		return $userData;
 	}
 
+	function verifySessionViaId()
+	{
+		$session = array(
+			'username' => $this->input->post('username'),
+			'id' => $this->input->post('user_id')
+		);
+
+		return $this->user_model->verifySession($session);	
+	}
 }
 
 

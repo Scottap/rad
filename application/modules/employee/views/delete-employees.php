@@ -1,6 +1,6 @@
 	<section>
 		<div class="col-md-8 col-md-offset-2">
-			<form class="form-login" method = "POST" action="empleados/eliminar">
+			<form class="form-login" method = "POST" action="empleados/eliminar-empleado/<?php echo $employeeData['slug']; ?>">
 				<h3 class="text-center">Eliminar a <?php echo $employeeData['name']; ?></h3>
 		  		<div class="form-group">
 		    		<label>Nombre</label>
@@ -12,7 +12,7 @@
 		  		</div>
 		  		<div class="form-group">
 		    		<label>Departamento</label>
-		    		<p></p>
+		    		<p><?php echo $employeeData['departament_name']; ?></p>
 		  		</div>
 		  		<div class="form-group">
 		  			<label>Código único</label>

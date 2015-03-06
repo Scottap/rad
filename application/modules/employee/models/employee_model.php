@@ -7,14 +7,6 @@ class Employee_model extends CI_Model {
 		parent::__construct();
 	}
 
-	function getEmployeeDataViaId($employee_id)
-	{
-		$data = array(
-			'id' => $employee_id
-		);
-		$query = $this->db->get_where('employee', $employee_id);
-		return $query->row();
-	}
 
 	function insertEmployee($employeeData)
 	{
@@ -50,9 +42,26 @@ class Employee_model extends CI_Model {
 		$this->db->delete('employee', array('slug' => $slug)); 
 	}
 
-	function updateUserViaSlug($slug)
+	function updateEmployeeViaSlug($slug)
 	{
-		$this->db->update('employee', array('slug') => $slug));
+		$data = array(
+			'name' => $name,
+			'birthday' => $birthday,
+			'cedula' => $cedula
+		);
+		$this->db->update('employee', array('slug' => $slug));
+	}
+
+	function getEmployeeDataViaId($employee_id)
+	{
+		$query = $this->db->get_where('employee', array('id' => $employee_id));
+		return $query->row();
+	}
+
+	function updateEmployee($employee_id, $data)
+	{
+		$this->db->where('id', $employee_id);
+		$this->db->update('employee', $data);
 	}
 
 }
