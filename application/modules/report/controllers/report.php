@@ -15,16 +15,21 @@ class Report extends MX_Controller {
 
 	public function reportsView()
 	{
+		if($this->session->userdata('user_id')){
 			$user_id = modules::run('user/getSessionId');
 			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 			$data['title'] = 'Backend - Reportes';
 			$data['contenido_principal'] = $this->load->view('report', $data, true);
 			$this->load->view('back/template', $data);
+		}else{
+			$data['title'] = 'Backend - Login';
+			$this->load->view('login', $data);
+		}
 	}
-	/*public function getDailyReports()
+	public function getAttendaceReport()
 	{
-		$user_id = modules::run('user/getSessionId', $user_id);
-	}*/
+		die_pre($_POST);
+	}
 
 	public function existCode()
 	{
