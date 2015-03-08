@@ -22,13 +22,15 @@ class Report extends MX_Controller {
 			$data['contenido_principal'] = $this->load->view('report', $data, true);
 			$this->load->view('back/template', $data);
 		}else{
-			$data['title'] = 'Backend - Login';
-			$this->load->view('login', $data);
+			redirect(backend);
 		}
 	}
 	public function getAttendaceReport()
 	{
-		die_pre($_POST);
+		if ($this->input->post('reportType')=='daily')
+		{
+
+		}
 	}
 
 	public function existCode()
