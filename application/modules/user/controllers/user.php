@@ -8,7 +8,6 @@ class User extends MX_Controller {
 		$this->load->model('user_model');
 	}
 
-
 	function verifySession()
 	{
 		$session = array(

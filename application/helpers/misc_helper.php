@@ -28,3 +28,9 @@
 		}
 		return $array;
 	}
+
+	function die_pre($data)
+	{
+		echo "<pre>".print_r($data, true)."</pre>";
+		die();
+	}
