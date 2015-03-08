@@ -1,0 +1,58 @@
+<div class="contaier-fluid">
+	<div class="col-md-10 col-md-offset-1">		   	
+	   	<form class="form-login">
+			<h2 class="text-center"><span class="icon-calendar"></span> Reporte</h2>
+	  		<div class="form-group" action="reporte/exportar">
+	  			<label><strong>Tipo de reporte</strong></label>
+	  		</div>
+	  		<div class="radio">
+		  		<label>
+		    		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+		    			Diario
+		  		</label>
+			</div>
+			<div class="radio">
+		  		<label>
+		    		<input class="mensual" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+		    		Mensual
+		    		<div class="form-mensual">
+		    			<form>
+			    			<div class="form-group">
+					  			<label>Desde</label>
+					  			<input class="form-control" type="date" name="desde" />
+							</div>
+							<div class="form-group">
+					  			<label>Hasta</label>
+					  			<input class="form-control" type="date" name="hasta" />
+							</div>
+			    		</form>
+		    		</div>
+		  		</label>
+		  		<br>
+			<div class="radio">
+				<label>
+					<input class="employees" type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+					Por empleado						
+					<div class="form-for-employees">
+						<form class>
+							<div class="form-group">
+								<label>Cedula</label>
+								<input class="form-control" type="text" name="cedula"> 
+							</div>
+							<div class="form-group">
+							  	<label>Desde</label>
+							  	<input class="form-control" type="date" name="desde" />
+							</div>
+							<div class="form-group">
+							  	<label>Hasta</label>
+							  	<input class="form-control" type="date" name="hasta" />
+							</div>
+						</form>
+					</div>
+				</label>
+			</div>
+			<button type="submit" class="btn btn-success btn-lg btn-block green-google"><span class="glyphicon glyphicon-save-file"></span> Guardar como Excel</button>
+			</div>
+		</form>
+	</div>
+</div>

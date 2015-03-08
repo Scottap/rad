@@ -1,32 +1,25 @@
 $(function() {
+      $('#message').hide();
+	$('#btnMarcar').click(function(){
+            
+		var url = 'reportes/marcar';
 
-	$(".mensual").click(function(){
-		$(".form-mensual").fadeIn();
-	});
-	
-	$(".mensual").focusout(function(){
-		$(".form-mensual").fadeOut();
-	});
+		$.ajax({
+      		url:        url,
+                  type:       'POST',
+                  dataType:   'json',
+                  data: $('#formMarcar').serialize(),
+                  success: function(json)
+                  {
+                        $('#message').hide();
+                  	$('#message').html(json.mensaje);
+                        $('#message').fadeIn();
+                  }
+		});
 
-	$(".employees").click(function(){
-		$(".form-for-employees").fadeIn();
+		return false;
+            
 	});
-	
-	$(".employees").focusout(function(){
-		$(".form-for-employees").fadeOut();
-	});
-
-	$("#btn_query").click(function(){
-		$("#query").toggle("slow");	
-		if ($("#btn_query").html() == "")
-		{
-			$("#btn_query").html("Buscar").removeClass("icon-search").addClass("btn btn-success");
-		}
-		else {
-			$("#btn_query").html("").removeClass("btn btn-success").addClass("icon-search");
-		} 
-	});
-	if $("")
 
 });
 

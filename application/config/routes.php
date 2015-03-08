@@ -67,6 +67,8 @@ $route['empleados/eliminar/(.*)'] = 'employee/deleteEmployeeView/$1';
 $route['empleados/eliminar-empleado/(.*)'] = 'employee/deleteEmployee/$1';
 $route['empleados/actualizar/(.*)'] = 'employee/updateEmployeeView/$1';
 $route['empleados/actualizar-empleado'] = 'employee/updateEmployee';
+$route['reportes'] = 'report/reportsView';
+$route['reportes/marcar'] = 'report/ajax_marcar';
 //Inicio de backend
 $route['home'] = 'backend/index';
 //-------------/BACKEND---------------------

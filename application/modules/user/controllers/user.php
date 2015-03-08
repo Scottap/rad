@@ -23,12 +23,6 @@ class User extends MX_Controller {
 
 		return $this->session->userdata('user_id');
 	} 
-	/*
-	public function getUserDataViaId($user_id)
-	{
-		return $this->user_model->getUserDataViaId($user_id);
-	}
-	*/
 
 	public function getUserDataViaId($user_id)
 	{

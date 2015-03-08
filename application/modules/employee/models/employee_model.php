@@ -7,7 +7,6 @@ class Employee_model extends CI_Model {
 		parent::__construct();
 	}
 
-
 	function insertEmployee($employeeData)
 	{
 		$this->db->insert('employee', $employeeData);
@@ -64,4 +63,28 @@ class Employee_model extends CI_Model {
 		$this->db->update('employee', $data);
 	}
 
+	function getEmployeeDataViaCode($employee_code)
+	{
+		$query = $this->db->get_where('employee', array('code' => $employee_code));
+		return $query->row();
+	}
+
+	function getEmployeeDataViaCedula($employee_cedula)
+	{
+		$query = $this->db->get_where('employee', array('cedula' => $employee_cedula));
+		return $query->row();
+	}
+
+	function existCode($code)
+	{
+		$query = $this->db->get_where('employee', array('code' => $code));
+		return $query->num_rows() != 0;
+	}
+
+	function updateAction($id, $data)
+	{
+		$this->db->where('id', $id);
+		$this->db->update('employee',  $data);
+	}
+	
 }

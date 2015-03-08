@@ -46,10 +46,10 @@
 				            <li><a href="empleados/ver">Ver empleados</a></li>
 			          	</ul>
 			       	</li>
-				    <li><a href="report.html">Reportes</a></li>
+				    <li><a href="reportes">Reportes</a></li>
 			       	<li><a href="config.html">Configuración</a></li>
         			<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $userData['name']; ?><span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $userData['name']; ?> <span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="profile.html">Mi perfil</a></li>
 				            <li><a href="usuarios/cerrar-sesion">Cerrar sesión</a></li>

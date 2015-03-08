@@ -191,4 +191,35 @@ class Employee extends MX_Controller {
 		}
 	}
 
+ 	public function getEmployeeDataViaCode($employee_code)
+ 	{
+ 		$employeeData = $this->employee_model->getEmployeeDataViaCode($employee_code);
+ 		$employeeData = SQL_to_array($employeeData);
+ 		return $employeeData;
+ 	}
+
+ 	public function getEmployeeDataViaCedula($employee_cedula)
+ 	{
+ 		$employeeData = $this->employee_model->getEmployeeDataViaCedula($employee_cedula);
+ 		$employeeData = SQL_to_array($employeeData);
+ 		return $employeeData;
+ 	}
+
+ 	public function existCode($code)
+ 	{
+ 		return $this->employee_model->existCode($code);
+ 	}
+
+
+ 	public function getActionIdViaCode($employee_code)
+ 	{
+ 		$act_id = $this->employee_model->getActionIdViaCode($employee_code);
+ 		$act_id = SQL_to_array($act_id);
+ 		return $act_id;
+ 	}
+
+ 	public function updateAction($id, $data)
+ 	{
+ 		$this->employee_model->updateAction($id, $data);
+ 	}
 }
