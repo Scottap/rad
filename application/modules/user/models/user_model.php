@@ -35,10 +35,7 @@ class User_model extends CI_Model
 
 	function getUserDataViaId($user_id)
 	{
-		$data = array(
-			'id' => $user_id
-		);
-		$query = $this->db->get_where('user', $data);
+		$query = $this->db->get_where('user', array('id' => $user_id));
 		return $query->row();
 	}
 

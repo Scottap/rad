@@ -15,11 +15,19 @@ class Report extends MX_Controller {
 
 	public function reportsView()
 	{
+		if($this->session->userdata('user_id'))
+		{
 			$user_id = modules::run('user/getSessionId');
 			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 			$data['title'] = 'Backend - Reportes';
+			die_pre($data);
 			$data['contenido_principal'] = $this->load->view('report', $data, true);
 			$this->load->view('back/template', $data);
+		}
+		else
+		{
+			redirect('backend');
+		}
 	}
 	/*public function getDailyReports()
 	{
@@ -79,7 +87,7 @@ class Report extends MX_Controller {
 				'employee_id' => $employee['id'],
 				'create_at' => date('Y-m-d'),
 				'date' => date('Y-m-d'),
-				'hour' => date('H:m:i')
+				'hour' => date('h:m:i')
 			);
 
 			$this->insertAction($report);
@@ -89,7 +97,7 @@ class Report extends MX_Controller {
 		else
 		{
 			$ajax_data = array(
-				'message'	=> 	"Codigo no existe"
+				'error'	=> 	"Codigo invalido"
 			);
 			
 			echo json_encode($ajax_data);

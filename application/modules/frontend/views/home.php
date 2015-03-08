@@ -1,46 +1,38 @@
     <!--Cabecera-->
     <div class="container">	
-    <img src="assets/front/img/rad.jpg" class="img-responsive" align="left">	
+        <img src="assets/front/img/rad.jpg" class="img-responsive" align="left">	
     </div>
-	
+    
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
- 		     <div class="jumbotron blue-google">
-   			      <h1 class="sobig text-center">RA(D)</h1>
-   			      <p class="notsobig text-center">Registro de Asistencia (Dactilar)</p>
-   		     </div>
-        </div>
-    </div>
-    	</div>
-    <div class="row">
-    	<div class="container-fluid">
-            <div class="col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
-                <form id="formMarcar" class="form-inline" action="">
-                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="insert">Introduzca el <strong class="insert">código único</strong>: </label>
-                        <input type="text" name="code" class="form-control" id="code" placeholder="Ejemplo: FFCA42"/>
-                      </div>
-                      <a id="btnMarcar" class="btn btn-default">Marcar</a>
-                </form>
-                <br>
-                <div id="message" class="alert alert-warning alert-dismissible fade in" role="alert" type="hidden">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <strong></strong>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3">
+            <div class="col-xs-12">
+                <div class="">
+                    <h1 class="text-center">RA(D)</h1>
+                    <p class="text-center">Registro de Asistencia (Dactilar)</p>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <center><img style="text-center" src="holder.js/140x140"></center> 
+                            </div>
+                            <center>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Introduzca el codigo unico</label>
+                                <input type="text" name="code" class="form-control" id="code" placeholder="Ejemplo: FFCA42"/>
+                            </div>
+                            <a id="btnMarcar" class="btn btn-primary btn-lg">Marcar</a>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+                <div id="panel_mensaje"></div>
             </div>
-            <br/>
-            <!-- 
-    		<div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-    			<div class="container">
-    				<p class="insert text-center"><br><br><br>Coloque su <strong class="insert">pulgar</strong> sobre el lector</p>	
-   				</div>
-			</div>	
+        </div>
+        <br/>
+    </div>
 
-			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-				<div class="container centered-at-last" >
-					<img src="assets/front/img/fingerprint.png" class="img-responsive img-thumbnail" width=30% >
-				</div>
-			</div>
-            -->
-    	</div>
-    </div>	
+
+    
+
+    	
