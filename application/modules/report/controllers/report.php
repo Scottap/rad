@@ -79,7 +79,7 @@ class Report extends MX_Controller {
 				'employee_id' => $employee['id'],
 				'create_at' => date('Y-m-d'),
 				'date' => date('Y-m-d'),
-				'hour' => date('h:m:i')
+				'hour' => date('H:m:i')
 			);
 
 			$this->insertAction($report);
@@ -94,6 +94,11 @@ class Report extends MX_Controller {
 			
 			echo json_encode($ajax_data);
 		}
+		
+	}
+
+	public function getReportsViaEmployeeId()
+	{
 		
 	}
 }

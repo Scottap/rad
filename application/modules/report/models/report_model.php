@@ -16,4 +16,14 @@ class Report_model extends CI_Model {
 	{
 		$this->db->get
 	}*/
+
+	function getReportsViaEmployeeId($employee_id)
+	{
+		$this->db->select('*');
+		$this->db->from('employee');
+		$this->db->join('report', 'report.employee_id = employee.id');
+
+		$query = $this->db->get('report');
+		return $query; 	
+	}
 }
