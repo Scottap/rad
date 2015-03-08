@@ -43,34 +43,41 @@ $route['404_override'] = '';
 $route['usuarios/mostrar/(.*)'] = 'user/show/$1';
 
 
-//--------------FRONTEND---------------------
+//--------------FRONTEND--------------------
 
-//-------------/FRONTEND---------------------
+//MODULO REPORTES
+
+$route['reportes/marcar'] = 								'report/ajax_marcar';
+
+//--------------/FRONTEND-------------------
 
 //--------------BACKEND---------------------
 
-//MODELO USUARIOS
-$route['usuarios/iniciar-sesion'] = 'user/login';
-$route['usuarios/cerrar-sesion'] = 'user/logout';
-$route['usuarios/agregar-usuario'] = 'user/newUser';
-$route['usuarios/crear'] = 'user/addUser';
-$route['usuarios/ver-usuarios'] = 'user/allUsers';
-$route['usuarios/eliminar-usuario/(.*)'] = 'user/deleteUserView/$1';
-$route['usuarios/eliminar/(.*)'] = 'user/deleteUser/$1';
-$route['usuarios/actualizar-usuario/(.*)'] = 'user/updateUserView/$1';
-$route['usuarios/actualizar'] = 'user/updateUser';
-$route['usuarios/perfil/(.*)'] = 'user/profile/$1';
-$route['empleados/agregar'] = 'employee/newEmployeeView';
-$route['empleados/agregar-empleado'] = 'employee/newEmployee';
-$route['empleados/ver'] = 'employee/allEmployees';
-$route['empleados/eliminar/(.*)'] = 'employee/deleteEmployeeView/$1';
-$route['empleados/eliminar-empleado/(.*)'] = 'employee/deleteEmployee/$1';
-$route['empleados/actualizar/(.*)'] = 'employee/updateEmployeeView/$1';
-$route['empleados/actualizar-empleado'] = 'employee/updateEmployee';
-$route['reportes'] = 'report/reportsView';
-$route['reportes/marcar'] = 'report/ajax_marcar';
-//Inicio de backend
-$route['home'] = 'backend/index';
+//MODULO USUARIOS
+$route['usuarios/iniciar-sesion'] = 						'user/login';
+$route['usuarios/cerrar-sesion'] = 							'user/logout';
+$route['usuarios/agregar-usuario'] = 						'user/newUser';
+$route['usuarios/crear'] = 									'user/addUser';
+$route['usuarios/ver-usuarios'] = 							'user/allUsers';
+$route['usuarios/eliminar-usuario/(.*)'] = 					'user/deleteUserView/$1';
+$route['usuarios/eliminar/(.*)'] = 							'user/deleteUser/$1';
+$route['usuarios/actualizar-usuario/(.*)'] = 				'user/updateUserView/$1';
+$route['usuarios/actualizar'] = 							'user/updateUser';
+$route['usuarios/perfil/(.*)'] = 							'user/profile/$1';
+//MODULO EMPLEADOS
+$route['empleados/agregar'] = 								'employee/newEmployeeView';
+$route['empleados/agregar-empleado'] = 						'employee/newEmployee';
+$route['empleados/ver'] = 									'employee/allEmployees';
+$route['empleados/eliminar/(.*)'] =			 			 	'employee/deleteEmployeeView/$1';
+$route['empleados/eliminar-empleado/(.*)'] = 				'employee/deleteEmployee/$1';
+$route['empleados/actualizar/(.*)'] = 						'employee/updateEmployeeView/$1';
+$route['empleados/actualizar-empleado'] = 					'employee/updateEmployee';
+//MODULO REPORTES
+$route['reportes'] = 										'report/reportsView';
+$route['reportes/exportar'] = 								'report/getAttendaceReport';
+//INICIO DE BACKEND
+$route['home'] = 											'backend/index';
+
 //-------------/BACKEND---------------------
 
 //(:num)

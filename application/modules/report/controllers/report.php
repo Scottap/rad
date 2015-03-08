@@ -7,20 +7,13 @@ class Report extends MX_Controller {
 		parent::__construct();
 		$this->load->model('report_model');
 	}
-	/*public function getAllReports()
-	{
-		$this->report_model->getReportsViaId();
-
-	}*/
 
 	public function reportsView()
 	{
-		if($this->session->userdata('user_id'))
-		{
+		if($this->session->userdata('user_id')){
 			$user_id = modules::run('user/getSessionId');
 			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 			$data['title'] = 'Backend - Reportes';
-			die_pre($data);
 			$data['contenido_principal'] = $this->load->view('report', $data, true);
 			$this->load->view('back/template', $data);
 		}
@@ -29,10 +22,11 @@ class Report extends MX_Controller {
 			redirect('backend');
 		}
 	}
-	/*public function getDailyReports()
+	
+	public function getAttendaceReport()
 	{
-		$user_id = modules::run('user/getSessionId', $user_id);
-	}*/
+		die_pre($_POST);
+	}
 
 	public function existCode()
 	{
