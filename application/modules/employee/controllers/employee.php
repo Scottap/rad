@@ -47,7 +47,7 @@ class Employee extends MX_Controller {
 					'slug' 			 => modules::run('operations/createSlug', $this->input->post('name')),
 					'departament_id' => $this->input->post('departament_id'),
 					'hours' 		 => $this->input->post('hours'),
-					'code' 			 => $this->input->post('code'),
+					'code' 			 => $this->generateCode(),
 					'fingerprint'    => $this->input->post('fingerprint')
 				);
 					$this->employee_model->insertEmployee($employeeDB);
@@ -222,4 +222,43 @@ class Employee extends MX_Controller {
  	{
  		$this->employee_model->updateAction($id, $data);
  	}
+
+ 	function generateCodeEmployee()
+	{
+		$characters = array(
+			"A","B","C","D","E","F","G","H","J","K","L","M",
+			"N","P","Q","R","S","T","U","V","W","X","Y","Z",
+			"1","2","3","4","5","6","7","8","9"
+		);
+		//CREAMOS UN VECTOR VACIO QUE LLEVARA LA CLAVE
+		$keys = array();
+		//CONTADOR EN 0 HASTA 6, ES DECIR, CALCULARA UNA CLAVE DE 7 CARACTERES
+		while(count($keys) < 7) {
+			$x = mt_rand(0, count($characters)-1);
+			if(!in_array($x, $keys)) {
+				$keys[] = $x;
+			}
+		}
+
+		foreach($keys as $key){
+			$random_chars .= $characters[$key];
+		}
+
+		return $random_chars;
+	}
+
+	function generateCode()
+	{
+		$codigo = $this->generateCodeEmployee();
+		while($this->employee_model->existe_codigo_reservacion($codigo))
+			$codigo = $this->get_code_reserva();
+		return $codigo;
+	}
+
+	public function getEmployeesByDate($date)
+	{
+		$query = $this->employee_model->getEmployeesByDate($date);
+		$employees = objectSQL_to_array($query);
+		return $employees;
+	}
 }

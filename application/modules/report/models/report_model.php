@@ -12,11 +12,6 @@ class Report_model extends CI_Model {
 		$this->db->insert('report', $data);
 	}
 
-	/*function getDailyReports()
-	{
-		$this->db->get
-	}*/
-
 	function getReportsViaEmployeeId($employee_id)
 	{
 		$this->db->select('*');
@@ -25,5 +20,11 @@ class Report_model extends CI_Model {
 
 		$query = $this->db->get('report');
 		return $query; 	
+	}
+
+	function getDailyReport($day)
+	{
+		$query = $this->db->get_where('report',array('date' => $day));
+		return $query->result();
 	}
 }

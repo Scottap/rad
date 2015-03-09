@@ -87,4 +87,10 @@ class Employee_model extends CI_Model {
 		$this->db->update('employee',  $data);
 	}
 	
+	function getEmployeesByDate($date)
+	{
+		$sql = 'select * from employee left join report on report.employee_id = employee.id where date = ?';
+		$query = $this->db->query($sql,array($date));
+		return $query->result();
+		}
 }

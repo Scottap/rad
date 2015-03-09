@@ -75,6 +75,8 @@ $route['empleados/actualizar-empleado'] = 					'employee/updateEmployee';
 //MODULO REPORTES
 $route['reportes'] = 										'report/reportsView';
 $route['reportes/exportar'] = 								'report/getAttendaceReport';
+$route['reportes/reporte-diario'] =							'report/dailyReport';
+$route['reportes/ver-reporte-diario'] =						'report/daily-report';					
 //INICIO DE BACKEND
 $route['home'] = 											'backend/index';
 

@@ -16,16 +16,37 @@ class Report extends MX_Controller {
 			$data['title'] = 'Backend - Reportes';
 			$data['contenido_principal'] = $this->load->view('report', $data, true);
 			$this->load->view('back/template', $data);
-
-		}else{
-			redirect(backend);
+		}
+		else
+		{
+			redirect('backend');
+		}
 	}
-	
+
+	function getDailyReport($day)
+	{
+		$query = $this->report_model->getDailyReport($day);
+		$report = objectSQL_to_array($query);
+		return $report;
+	}
+
 	public function getAttendaceReport()
 	{
-		if ($this->input->post('reportType')=='daily')
-		{
 
+		if ($this->input->post('typeReport')=='daily')
+		{
+			$user_id = modules::run('user/getSessionId');
+			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+			$day = date('Y-m-d');
+			$data['report'] = $this->getDailyReport($day);
+			$data['all_employees'] = modules::run('employee/getEmployeesByDate',$day);
+			foreach ($data['all_employees'] as $employee => $value) {
+				$data['all_employees'][$employee]['department_name'] = modules::run('employee/getDepartamentNameViaId', $value['departament_id']);
+			}
+			$data['title'] = 'Backend - Reporte diario';
+			//die_pre($data);
+			$data['contenido_principal'] = $this->load->view('daily-report', $data, true);
+			$this->load->view('back/template', $data);
 		}
 	}
 
