@@ -39,6 +39,13 @@ class Report extends MX_Controller {
 		return $report;
 	}
 
+	public function getMonthlyReport($month)
+	{
+		$query = $this->report_model->getMonthlyReport($month);
+		$report = objectSQL_to_array($query);
+		return $report;
+	}
+
 	public function getAttendaceReport()
 	{
 		if($this->input->post('typeReport')=='daily')
@@ -50,6 +57,23 @@ class Report extends MX_Controller {
 			$data['title'] = 'Backend - Reportes';
 			$data['contenido_principal'] = $this->load->view('daily-report', $data, true);
 			$this->load->view('back/template', $data);
+		}else{
+			if ($this->input->post('typeReport')=='monthly')
+			{
+				$this->form_validation->set_rules('month','Mes','required');
+				$this->form_validation->set_message('required','El campo $ es requerido');
+
+				if ($this->form_validation->run($this))
+				{
+					$user_id = modules::run('user/getSessionId');
+					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+					$month = $this->input->post('month');
+					$data['report'] = $this->getMonthlyReport($month);
+					$data['title'] = 'Backend - Reportes';
+					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
+					$this->load->view('back/template', $data);
+				}	
+			}
 		}
 	}
 

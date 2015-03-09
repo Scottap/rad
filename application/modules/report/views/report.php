@@ -18,12 +18,8 @@
 		    		<div class="form-mensual">
 		    			<form>
 			    			<div class="form-group">
-					  			<label>Desde</label>
-					  			<input class="form-control" type="date" name="desde" />
-							</div>
-							<div class="form-group">
-					  			<label>Hasta</label>
-					  			<input class="form-control" type="date" name="hasta" />
+					  			<label for="exampleInputEmail1">Mes</label>
+					  			<input class="form-control" type="text" name="month" placeholder="Indique el mes que desea buscar"/>
 							</div>
 			    		</form>
 		    		</div>
@@ -51,7 +47,7 @@
 					</div>
 				</label>
 			</div>
-			<button type="submit" class="btn btn-success btn-lg btn-block green-google"><span class="glyphicon glyphicon-save-file"></span> Guardar como Excel</button>
+			<button type="submit" class="btn btn-success btn-lg btn-block green-google"><span class="glyphicon glyphicon-save-file"></span> Generar reporte </button>
 			</div>
 		</form>
 	</div>

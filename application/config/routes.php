@@ -77,7 +77,7 @@ $route['reportes'] = 										'report/reportsView';
 $route['reportes/exportar'] = 								'report/getAttendaceReport';
 $route['reportes/reporte-diario'] =							'report/dailyReport';
 $route['reportes/ver-reporte-diario'] =						'report/daily-report';	
-$route['reportes/descargarDiario'] = 'report/downloadReportDaily';				
+$route['reportes/descargarDiario'] = 						'report/downloadReportDaily';				
 //INICIO DE BACKEND
 $route['home'] = 											'backend/index';
 
