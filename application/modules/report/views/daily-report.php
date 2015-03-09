@@ -25,7 +25,7 @@
 		      				</tr>
 		    			</thead>
 			    		<?php $i=count($report); ?>
-			    		<?php foreach ($report as $key => $value)?>
+			    		<?php foreach ($report as $key => $value): ?>
 			        		<tbody>
 			        			<tr>
 						            <th> <?php echo $i--; ?> </th>

@@ -205,12 +205,6 @@ class Employee extends MX_Controller {
  		return $employeeData;
  	}
 
- 	public function existCode($code)
- 	{
- 		return $this->employee_model->existCode($code);
- 	}
-
-
  	public function getActionIdViaCode($employee_code)
  	{
  		$act_id = $this->employee_model->getActionIdViaCode($employee_code);
@@ -221,6 +215,12 @@ class Employee extends MX_Controller {
  	public function updateAction($id, $data)
  	{
  		$this->employee_model->updateAction($id, $data);
+ 	}
+
+ 	public function existCode($code)
+ 	{
+ 		$query = $this->employee_model->existCode($code);
+ 		return ($query);
  	}
 
  	function generateCodeEmployee()
@@ -250,8 +250,8 @@ class Employee extends MX_Controller {
 	function generateCode()
 	{
 		$codigo = $this->generateCodeEmployee();
-		while($this->employee_model->existe_codigo_reservacion($codigo))
-			$codigo = $this->get_code_reserva();
+		while($this->employee_model->existCode($codigo))
+			$codigo = $this->generateCodeEmployee();
 		return $codigo;
 	}
 
@@ -261,4 +261,5 @@ class Employee extends MX_Controller {
 		$employees = objectSQL_to_array($query);
 		return $employees;
 	}
+
 }
