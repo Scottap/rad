@@ -94,4 +94,28 @@ class Employee_model extends CI_Model {
 		return $query->result();
 	}
 
+	function getNameById($employee_id)
+	{
+		$query = $this->db->get_where('employee', array('id' => $employee_id));
+		return $query->row()->name;
+	}
+
+	function getCedulaById($employee_id)
+	{
+		$query = $this->db->get_where('employee', array('id' => $employee_id));
+		return $query->row()->cedula;
+	}
+
+	function getDepartamentIdById($employee_id)
+	{
+		$query = $this->db->get_where('employee', array('id' => $employee_id));
+		return $query->row()->departament_id;
+	}
+
+	function getDepartamentbyId($departament_id)
+	{
+		$query = $this->db->get_where('departament', array('id' => $departament_id));
+		return $query->row()->name;
+	}
+
 }

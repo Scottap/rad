@@ -262,4 +262,25 @@ class Employee extends MX_Controller {
 		return $employees;
 	}
 
+	public function getNameById($employee_id)
+	{
+		return $this->employee_model->getNameById($employee_id);
+	}
+
+	public function getCedulaById($employee_id)
+	{
+		return $this->employee_model->getCedulaById($employee_id);
+	}
+
+	public function getDepartamentIdById($employee_id)
+	{
+		return $this->employee_model->getDepartamentIdById($employee_id);
+	}
+
+	public function getDepartamentById($employee_id)
+	{
+		$departament_id = $this->getDepartamentIdById($employee_id);
+		return $this->employee_model->getDepartamentbyId($departament_id);
+	}
+
 }

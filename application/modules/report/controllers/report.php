@@ -27,27 +27,41 @@ class Report extends MX_Controller {
 	{
 		$query = $this->report_model->getDailyReport($day);
 		$report = objectSQL_to_array($query);
+		foreach ($report as $key => $value) {
+			if($report[$key]['action_id'] == 1)
+				$report[$key]['action_name'] = "Entrada";
+			else
+				$report[$key]['action_name'] = "Salida";
+			$report[$key]['employee_name'] = modules::run('employee/getNameById', $report[$key]['employee_id']);
+			$report[$key]['cedula'] = modules::run('employee/getCedulaById', $report[$key]['employee_id']);
+			$report[$key]['departament'] = modules::run('employee/getDepartamentById', $report[$key]['employee_id']);
+		}
 		return $report;
 	}
 
 	public function getAttendaceReport()
 	{
-
-		if ($this->input->post('typeReport')=='daily')
+		if($this->input->post('typeReport')=='daily')
 		{
 			$user_id = modules::run('user/getSessionId');
 			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 			$day = date('Y-m-d');
 			$data['report'] = $this->getDailyReport($day);
-			$data['all_employees'] = modules::run('employee/getEmployeesByDate',$day);
-			foreach ($data['all_employees'] as $employee => $value) {
-				$data['all_employees'][$employee]['department_name'] = modules::run('employee/getDepartamentNameViaId', $value['departament_id']);
-			}
-			$data['title'] = 'Backend - Reporte diario';
-			//die_pre($data);
+			$data['title'] = 'Backend - Reportes';
 			$data['contenido_principal'] = $this->load->view('daily-report', $data, true);
 			$this->load->view('back/template', $data);
 		}
+	}
+
+	public function downloadReportDaily()
+	{
+		$day = date('Y-m-d');
+		$data['report'] = $this->getDailyReport($day);
+		$data['contenido_principal'] = $this->load->view('download-daily', $data, true);
+		$this->dompdf->set_base_path(realpath(base_url().'assets/back/css'));
+		$this->dompdf->load_html($data['contenido_principal']);
+        $this->dompdf->render();
+        $this->dompdf->stream("welcome.pdf",array('Attachment'=>0));
 	}
 
 	public function existCode()
@@ -118,11 +132,6 @@ class Report extends MX_Controller {
 			
 			echo json_encode($ajax_data);
 		}
-		
-	}
-
-	public function getReportsViaEmployeeId()
-	{
 		
 	}
 }
