@@ -1,10 +1,10 @@
  <footer>
 	<div class="container">
-	<div class="panel-footer">
-	<ul>
-		<p>RAD - Desarrollado por<a href="https://www.facebook.com/alexandra.hidalgo.967" target="black">&nbsp;Alexandra Hidalgo&nbsp;</a> y <a href="https://www.facebook.com/FredoGodofredo30" target="black">Flavio Ruiz</a></p>
-	</ul>
-	</div>
+		<div class="panel-footer">
+			<ul>
+				<p class="text-center"> RAD - Desarrollado por<a href="https://www.facebook.com/alexandra.hidalgo.967" target="black">&nbsp;Alexandra Hidalgo&nbsp;</a> y <a href="https://www.facebook.com/FredoGodofredo30" target="black">Flavio Ruiz</a></p>
+			</ul>
+		</div>
 	</div>
 </footer>
 

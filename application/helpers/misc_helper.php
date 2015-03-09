@@ -34,3 +34,8 @@
 		echo "<pre>".print_r($data, true)."</pre>";
 		die();
 	}
+
+	function pre($data)
+	{
+		echo "<pre>".print_r($data, true)."</pre>";
+	}
