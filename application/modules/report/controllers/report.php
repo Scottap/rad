@@ -43,7 +43,8 @@ class Report extends MX_Controller {
 	{
 		$query = $this->report_model->getMonthlyReport($month);
 		$report = objectSQL_to_array($query);
-		foreach ($report as $key => $value) {
+		foreach ($report as $key => $value) 
+		{
 			$report[$key]['departament'] = modules::run('employee/getDepartamentById', $report[$key]['employee_id']);
 		}
 		return $report;
