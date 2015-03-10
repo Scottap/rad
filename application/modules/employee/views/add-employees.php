@@ -34,12 +34,6 @@
 		  			<label>Horas</label> <br>
 		  			<input type="text" value="<?php echo set_value('hours'); ?>" name="hours" class="form-control">
 		  		</div>	  		
-		  		<div class="form-group">
-		  			<label>Código único * </label> <small style='font-size:10.5px'>No edite este número</small> <br>
-		  			<input name="code" type="text" value="<?php echo mt_rand(021294, 999999); ?> <?php echo set_value('code'); ?>" class="form-control	">
-		  			<?php echo form_error('code'); ?>
-		  		</div>
-		  		<div class="alert alert-danger" role="alert">Error</div>
 		  		<button type="submit" class="btn btn-primary btn-lg btn-block blue-google"><span class="icon-database"></span> Agregar</button>
 			</form>
 		</div>

@@ -11,6 +11,7 @@ class Employee_model extends CI_Model {
 	{
 		$this->db->insert('employee', $employeeData);
 	}
+	
 	function getAllDepartments()
 	{
 		$query = $this->db->get('departament');
@@ -116,6 +117,12 @@ class Employee_model extends CI_Model {
 	{
 		$query = $this->db->get_where('departament', array('id' => $departament_id));
 		return $query->row()->name;
+	}
+
+	function existCedula($cedula)
+	{
+		$query = $this->db->get_where('employee', array('cedula' => $cedula));
+		return $query->num_rows() == 0;
 	}
 
 }

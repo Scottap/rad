@@ -12,8 +12,9 @@ class Employee extends MX_Controller {
 	{
 		if(modules::run('user/getSessionId'))
 		{
+			$user_id = modules::run('user/getSessionId');
+			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 			$data['departaments'] = $this->getAllDepartments();
-			$data['userData'] = modules::run('user/getUserDataFormat');
 			$data['title'] = 'Backend - Nuevo Empleado';
 			$data['contenido_principal'] = $this->load->view('add-employees', $data, true);
 			$this->load->view('back/template', $data); 	
@@ -25,18 +26,21 @@ class Employee extends MX_Controller {
 		//echo "<pre> ".print_r($data, true) . "</pre>";
 	}
 
+	function existCedula()
+	{
+		return $this->employee_model->existCedula($this->input->post('cedula'));
+	}
+
 	public function newEmployee()
 	{
 		if(!empty($_POST))
 		{
 			$this->form_validation->set_rules('name', 'Nombre', 'required');
-			$this->form_validation->set_rules('cedula', 'Cédula', 'required|callback_existingCed');
+			$this->form_validation->set_rules('cedula', 'Cédula', 'required|callback_existCedula');
 			$this->form_validation->set_rules('departament_id', 'Departamento', 'required');
-			$this->form_validation->set_rules('code', 'Código único', 'required');
-			//$this->form_validation->set_rules('fingerprint', 'Huella Dactilar', 'required|callback_existingFP');
 		
 			$this->form_validation->set_message('required', '%s es requerido');
-			$this->form_validation->set_message('existingCed', 'La cédula que introdujo ya ha sido registrada');
+			$this->form_validation->set_message('existCedula', 'La cédula que introdujo ya ha sido registrada');
 
 			if($this->form_validation->run($this) == TRUE)
 			{
@@ -48,8 +52,10 @@ class Employee extends MX_Controller {
 					'departament_id' => $this->input->post('departament_id'),
 					'hours' 		 => $this->input->post('hours'),
 					'code' 			 => $this->generateCode(),
-					'fingerprint'    => $this->input->post('fingerprint')
+					'fingerprint'    => "",
+					'action_id'		 => 2
 				);
+				pre($employeeDB);
 					$this->employee_model->insertEmployee($employeeDB);
 					$this->session->set_flashdata('message', '¡Empleado agregado exitosamente!');
 					redirect('backend');
@@ -239,6 +245,8 @@ class Employee extends MX_Controller {
 				$keys[] = $x;
 			}
 		}
+		
+		$random_chars = "";
 
 		foreach($keys as $key){
 			$random_chars .= $characters[$key];
