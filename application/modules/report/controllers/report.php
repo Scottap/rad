@@ -164,8 +164,7 @@ class Report extends MX_Controller {
 					$report['ced'] = $this->input->post('cedula');
 					$data['report'] = $this->getEmployeeReport($report);
 					$data['title'] = 'Backend - Reportes';
-					$data['month'] = $this->getMonth($month);
-					//die_pre($data);
+					die_pre($data);
 					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
 					$this->load->view('back/template', $data);
 				}
@@ -187,6 +186,16 @@ class Report extends MX_Controller {
 		$day = date('Y-m-d');
 		$data['report'] = $this->getDailyReport($day);
 		$data['contenido_principal'] = $this->load->view('download-daily', $data, true);
+		$this->dompdf->set_base_path(realpath(base_url().'assets/back/css'));
+		$this->dompdf->load_html($data['contenido_principal']);
+        $this->dompdf->render();
+        $this->dompdf->stream("welcome.pdf",array('Attachment'=>0));
+	}
+
+	public function downloadReportMonthly()
+	{
+		$data['report'] = $this->getMonthlyReport($month);
+		$data['contenido_principal'] = $this->load->view('download-monthly', $data, true);
 		$this->dompdf->set_base_path(realpath(base_url().'assets/back/css'));
 		$this->dompdf->load_html($data['contenido_principal']);
         $this->dompdf->render();
