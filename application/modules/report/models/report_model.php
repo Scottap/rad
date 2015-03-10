@@ -35,13 +35,12 @@ class Report_model extends CI_Model {
 		return $query->result();
 	}
 
-/*
-	function getMonthlyReport($month)
+	function getEmployeeReport($report)
 	{
-		$sql = 'SELECT DATE_FORMAT(report.date, '%m'), name FROM report JOIN employee ON employee.id = report.employee_id WHERE DATE_FORMAT(report.date, '%m') = ? ';
-		$query = $this->db->query($sql,array($month));
+		$sql = "select * from employee where cedula= ? join report on report.employee_id = employee.id where date >= ? and date <= ?";
+		$query = $this->db->query($sql,array($report['ced'],$report['fecha_inicio'],$report['fecha_final']));
 		return $query->result();
 	}
-*/
+
 
 }

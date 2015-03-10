@@ -93,6 +93,19 @@ class Report extends MX_Controller {
        	return $mes;
 	}
 
+	function existCedula()
+	{
+		$cedula = $this->input->post('cedula');
+		return (modules::run('employee/existCedula',$cedula));
+	}
+
+	public function getEmployeeReport($report)
+	{
+		$query = $this->report_model->getEmployeeReport($report);
+		$report = objectSQL_to_array($query);
+		return $report;
+	}
+
 	public function getAttendaceReport()
 	{
 		if($this->input->post('typeReport')=='daily')
@@ -125,7 +138,45 @@ class Report extends MX_Controller {
 				}
 				else
 				{
-					echo "No paso";
+					$user_id = modules::run('user/getSessionId');
+					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+					$data['title'] = 'Backend - Reportes';
+					//die_pre($data);
+					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
+					$this->load->view('back/template', $data);
+				}	
+			}
+			else
+			{
+				$this->form_validation->set_rules('desde','fecha inicial','required');
+				$this->form_validation->set_rules('hasta','fecha final','required');
+				$this->form_validation->set_rules('cedula','cedula','required|callback_existCedula');
+
+				$this->form_validation->set_message('required','El campo $ es requerido');
+				$this->form_validation->set_message('existCedula','La cedula $ no existe en la base de datos');
+
+				if($this->form_validation->run($this))
+				{
+					$user_id = modules::run('user/getSessionId');
+					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+					$report['fecha_inicio'] = $this->input->post('desde');
+					$report['fecha_final'] = $this->input->post('hasta');
+					$report['ced'] = $this->input->post('cedula');
+					$data['report'] = $this->getEmployeeReport($report);
+					$data['title'] = 'Backend - Reportes';
+					$data['month'] = $this->getMonth($month);
+					//die_pre($data);
+					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
+					$this->load->view('back/template', $data);
+				}
+				else
+				{
+					$user_id = modules::run('user/getSessionId');
+					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+					$data['title'] = 'Backend - Reportes';
+					//die_pre($data);
+					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
+					$this->load->view('back/template', $data);
 				}	
 			}
 		}
