@@ -1,11 +1,20 @@
 $(function() {
 
+	/*
 	$(".mensual").click(function(){
 		$(".form-mensual").fadeIn();
 	});
 	
 	$(".mensual").focusout(function(){
 		$(".form-mensual").fadeOut();
+	});
+	*/
+
+	$('.mensual').click(function() {
+   		if($('.mensual').is(':checked'))
+   		{ 
+   			$(".form-mensual").fadeIn();
+   		}
 	});
 
 	$(".employees").click(function(){

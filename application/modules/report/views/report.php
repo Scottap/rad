@@ -13,13 +13,29 @@
 			</div>
 			<div class="radio">
 		  		<label>
-		    		<input class="mensual" type="radio" name="typeReport" id="optionsRadios2" value="monthly">
+		    		<input class="mensual" type="radio" name="typeReport" id="mensual" value="monthly">
 		    		Mensual
 		    		<div class="form-mensual">
-		    			<form>
+		    			<form class="form-inline">
 			    			<div class="form-group">
 					  			<label for="exampleInputEmail1">Mes</label>
+					  			<!-- 
 					  			<input class="form-control" type="text" name="month" placeholder="Indique el mes que desea buscar"/>
+					  			-->
+					  			<select name="month" class="form-control">
+					  				<option value="1">Enero</option>
+					  				<option value="2">Febrero</option>
+					  				<option value="3">Marzo</option>
+					  				<option value="4">Abril</option>
+					  				<option value="5">Mayo</option>
+					  				<option value="6">Junio</option>
+					  				<option value="7">Julio</option>
+					  				<option value="8">Agosto</option>
+					  				<option value="9">Septiembre</option>
+					  				<option value="10">Octubre</option>
+					  				<option value="11">Noviembre</option>
+					  				<option value="12">Diciembre</option>
+					  			</select>	
 							</div>
 			    		</form>
 		    		</div>
