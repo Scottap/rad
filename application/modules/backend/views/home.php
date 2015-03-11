@@ -4,17 +4,9 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 			<div class="leyenda"><span class="entrada"></span> = Entrada <span class="salida"></span> = Salida</div>
-			<br>
-			<form class="form-inline form-right form-search">
-			  	<div class="form-group">
-			  		<a id="btn_query" href="#" class="btn btn-success"> Buscar</a>
-			    	<input id="query" type="text" class="form-control" id="exampleInputName2" placeholder="Buscador">
-			  	</div>
-			</form>
-			<br>	
 		</div>
 	</div>
-	
+	<br>
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 			<div class="table-responsive table-design">
@@ -52,11 +44,6 @@
 	          			<?php endforeach; ?>
 					</table>
 				<?php endif; ?>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarDiario">Descargar</a>
-				</div>
 			</div>
 		</div>
 	</div>
