@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `report` (
   `date` date NOT NULL,
   `action_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_at` datetime NOT NULL,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
