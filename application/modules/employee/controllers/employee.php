@@ -291,4 +291,9 @@ class Employee extends MX_Controller {
 		return $this->employee_model->getDepartamentbyId($departament_id);
 	}
 
+	public function getEmployeeIdByCedula($cedula)
+	{
+		return $this->employee_model->getEmployeeIdByCedula($cedula);
+	}
+
 }

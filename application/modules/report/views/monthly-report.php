@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<h1 class="text-center">Registro del mes de <?php echo $month_name; ?></h1>
+	<h1 class="text-center">Registro de <?php echo $report[0]['name']; ?></h1>
 	
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -57,7 +57,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarMensual/<?php echo $month; ?>">Descargar</a>
+					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarMensual">Descargar</a>
 				</div>
 			</div>
 		</div>

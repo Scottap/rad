@@ -159,6 +159,12 @@ class Report extends MX_Controller {
 	{
 		$query = $this->report_model->getEmployeeReport($report);
 		$report = objectSQL_to_array($query);
+		foreach ($report as $key => $value) 
+		{
+			$report[$key]['departament'] = modules::run('employee/getDepartamentById', $report[$key]['employee_id']);
+			$report[$key]['name'] = modules::run('employee/getNameById', $report[$key]['employee_id']);
+			$report[$key]['cedula'] = modules::run('employee/getCedulaById', $report[$key]['employee_id']);
+		}
 		return $report;
 	}
 
@@ -218,17 +224,14 @@ class Report extends MX_Controller {
 					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 					$report['fecha_inicio'] = $this->input->post('desde');
 					$report['fecha_final'] = $this->input->post('hasta');
-					$report['ced'] = $this->input->post('cedula');
+					$report['employee_id'] = modules::run('employee/getEmployeeIdByCedula', $this->input->post('cedula'));
 					$data['report'] = $this->getEmployeeReport($report);
 					$data['title'] = 'Backend - Reportes';
-					die_pre($data);
 					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
 					$this->load->view('back/template', $data);
 				}
 				else
 				{
-					pre($_POST);
-					die_pre(validation_errors());
 					$user_id = modules::run('user/getSessionId');
 					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 					$data['title'] = 'Backend - Reportes';

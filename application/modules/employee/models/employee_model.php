@@ -125,4 +125,9 @@ class Employee_model extends CI_Model {
 		return $query->num_rows() == 0;
 	}
 
+	function getEmployeeIdByCedula($cedula)
+	{
+		$query = $this->db->get_where('employee', array('cedula' => $cedula));
+		return $query->row()->id;
+	}
 }

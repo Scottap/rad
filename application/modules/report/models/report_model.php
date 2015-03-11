@@ -37,10 +37,11 @@ class Report_model extends CI_Model {
 
 	function getEmployeeReport($report)
 	{
-		$sql = "select * from employee where cedula = ? join report on report.employee_id = employee.id where date >= ? and date <= ?;";
-		$query = $this->db->query($sql,array($report['ced'],$report['fecha_inicio'],$report['fecha_final']));
+		$this->db->where('employee_id =', $report['employee_id']);
+		$this->db->where('date >=', $report['fecha_inicio']); 
+		$this->db->where('date <=', $report['fecha_final']); 
+		$query = $this->db->get('report');
 		return $query->result();
 	}
-
 
 }
