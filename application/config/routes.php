@@ -48,6 +48,8 @@ $route['usuarios/mostrar/(.*)'] = 'user/show/$1';
 //MODULO REPORTES
 
 $route['reportes/marcar'] = 								'report/ajax_marcar';
+$route['simulacro'] = 'frontend/simulacro';
+$route['simulacro/cargar'] = "frontend/uploadImage";
 
 //--------------/FRONTEND-------------------
 

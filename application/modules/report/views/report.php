@@ -45,7 +45,7 @@
 				<label>
 					<input class="employees" type="radio" name="typeReport" id="optionsRadios3" value="employee">
 					Por empleado						
-					<div class="form-for-employees">
+					<div>
 						<form class>
 							<div class="form-group">
 								<label>Cedula</label>
