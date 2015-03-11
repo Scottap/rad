@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<h1 class="text-center">Registro del mes de <?php echo $month; ?></h1>
+	<h1 class="text-center">Registro del mes de <?php echo $month_name; ?></h1>
 	
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
@@ -36,10 +36,10 @@
 			    		<?php foreach ($report as $key => $value): ?>
 			        		<tbody>
 			        			<tr>
-						            <th> <?php echo $value['id']; ?> </th>
+						            <th> <?php echo $i--; ?> </th>
 						            <td><strong> <?php echo $value['hour']; ?> </strong></td>
 						            <td><strong> <?php echo $value['date']; ?> </strong></td>
-						            <td>
+						           <td>
 						            	<?php if($value['action_id'] == 1): ?>
 						            		<div class="entrada"></div>
 						            	<?php else: ?>
@@ -57,7 +57,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarMensual">Descargar</a>
+					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarMensual/<?php echo $month; ?>">Descargar</a>
 				</div>
 			</div>
 		</div>

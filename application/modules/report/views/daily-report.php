@@ -35,7 +35,7 @@
 			    		<?php foreach ($report as $key => $value): ?>
 			        		<tbody>
 			        			<tr>
-						            <th> <?php echo $value['id']; ?> </th>
+						            <th> <?php echo $i--; ?> </th>
 						            <td><strong> <?php echo $value['hour']; ?> </strong></td>
 						            <td>
 						            	<?php if($value['action_id'] == 1): ?>

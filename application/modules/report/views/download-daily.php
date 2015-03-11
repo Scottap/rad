@@ -30,7 +30,7 @@
 						            <td><strong> <?php echo $value['hour']; ?> </strong></td>
 						            <td>
 						            	<?php if($value['action_id'] == 1): ?>
-						            		Entrdada
+						            		Entrada
 						            	<?php else: ?>
 											Salida
 						            	<?php endif; ?>	
