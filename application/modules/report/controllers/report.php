@@ -225,6 +225,9 @@ class Report extends MX_Controller {
 					$report['fecha_inicio'] = $this->input->post('desde');
 					$report['fecha_final'] = $this->input->post('hasta');
 					$report['employee_id'] = modules::run('employee/getEmployeeIdByCedula', $this->input->post('cedula'));
+					$data['fecha_inicio'] = $this->input->post('desde');
+					$data['fecha_final'] = $this->input->post('hasta');
+					$data['employee_id'] = modules::run('employee/getEmployeeIdByCedula', $this->input->post('cedula'));
 					$data['report'] = $this->getEmployeeReport($report);
 					$data['title'] = 'Backend - Reportes';
 					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
@@ -336,5 +339,22 @@ class Report extends MX_Controller {
 			echo json_encode($ajax_data);
 		}
 		
+	}
+
+	public function downloadReportEmployee($fecha_inicio, $fecha_final, $employee_id)
+	{
+		$report = array(
+			'fecha_inicio' => $fecha_inicio,
+			'fecha_final' => $fecha_final,
+			'employee_id' => $employee_id
+		);
+		$data['fecha_final'] = $fecha_final;
+		$data['fecha_inicio'] = $fecha_inicio;
+		$data['report'] = $this->getEmployeeReport($report);
+		$data['contenido_principal'] = $this->load->view('download-employee', $data, true);
+		$this->dompdf->set_base_path(realpath(base_url().'assets/back/css'));
+		$this->dompdf->load_html($data['contenido_principal']);
+        $this->dompdf->render();
+        $this->dompdf->stream("welcome.pdf",array('Attachment'=>0));
 	}
 }

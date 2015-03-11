@@ -50,6 +50,7 @@ $route['usuarios/mostrar/(.*)'] = 'user/show/$1';
 $route['reportes/marcar'] = 								'report/ajax_marcar';
 $route['simulacro'] = 'frontend/simulacro';
 $route['simulacro/cargar'] = "frontend/uploadImage";
+$route['reportes/descargarEmpleado/(.*)/(.*)/(.*)'] = 'report/downloadReportEmployee/$1/$2/$3';
 
 //--------------/FRONTEND-------------------
 
