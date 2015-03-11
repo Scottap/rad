@@ -11,9 +11,13 @@ class Backend extends MX_Controller {
 	{
 		if($this->session->userdata('user_id'))
 		{
-			$data['title'] = 'Backend - Home';
+			$user_id = modules::run('user/getSessionId');
+			$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
+			$day = date('Y-m-d');
 			$data['user_id'] = $this->session->userdata('user_id');
 			$data['userData'] = modules::run('user/getUserDataViaId', $data['user_id']);
+			$data['report'] = modules::run('report/getDailyReport',$day);
+			$data['title'] = 'Backend - Home';
 			$data['contenido_principal'] = $this->load->view('home', $data, true);
 			$this->load->view('back/template', $data);
 		}
