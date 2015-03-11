@@ -26,7 +26,7 @@
             		<span class="icon-bar"></span>
             		<span class="icon-bar"></span>
       			</button>
-      			<a class="navbar-brand" href="home">RAD</a>
+      			<a href="<?php echo base_url(); ?>" class="navbar-brand" href="home">RAD</a>
     		</div>
     		<!-- Collect the nav links, forms, and other content for toggling -->
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">

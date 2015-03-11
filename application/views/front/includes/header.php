@@ -13,7 +13,7 @@
     		<div class="container-fluid">
       		<!-- Brand and toggle get grouped for better mobile display -->
       		<div class="navbar-header">
-        			<a class="navbar-brand" href="home.html">RAD</a>
+        			<a class="navbar-brand" href="<?php echo base_url(); ?>">RAD</a>
       		</div>
       	</div>
     </nav>

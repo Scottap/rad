@@ -57,7 +57,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarMensual">Descargar</a>
+					<a style="display:block; margin-top:1em;" class="btn btn-success" href="reportes/descargarMensual/">Descargar</a>
 				</div>
 			</div>
 		</div>
