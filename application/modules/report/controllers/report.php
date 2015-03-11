@@ -152,8 +152,7 @@ class Report extends MX_Controller {
 
 	function existCedula()
 	{
-		$cedula = $this->input->post('cedula');
-		return (modules::run('employee/existCedula',$cedula));
+		return !modules::run('employee/existCedula');
 	}
 
 	public function getEmployeeReport($report)
@@ -210,8 +209,8 @@ class Report extends MX_Controller {
 				$this->form_validation->set_rules('hasta','fecha final','required');
 				$this->form_validation->set_rules('cedula','cedula','required|callback_existCedula');
 
-				$this->form_validation->set_message('required','El campo $ es requerido');
-				$this->form_validation->set_message('existCedula','La cedula $ no existe en la base de datos');
+				$this->form_validation->set_message('required','El campo %s es requerido');
+				$this->form_validation->set_message('existCedula','La cedula %s no existe en la base de datos');
 
 				if($this->form_validation->run($this))
 				{
@@ -228,6 +227,8 @@ class Report extends MX_Controller {
 				}
 				else
 				{
+					pre($_POST);
+					die_pre(validation_errors());
 					$user_id = modules::run('user/getSessionId');
 					$data['userData'] = modules::run('user/getUserDataViaId', $user_id);
 					$data['title'] = 'Backend - Reportes';
