@@ -45,17 +45,17 @@
 				<label>
 					<input class="employees" type="radio" name="typeReport" id="optionsRadios3" value="employee">
 					Por empleado						
-					<div>
+					<div class="">
 						<form class>
 							<div class="form-group">
 								<label>Cedula</label>
-								<input class="form-control" type="text" name="cedula"> 
-							</div>
-							<div class="form-group">
+								<input class="form-control" type="text" name="cedula">
+							</div> 
+							</div class="form-group date">
 							  	<label>Desde</label>
 							  	<input class="form-control" type="date" name="desde" />
 							</div>
-							<div class="form-group">
+							<div class="form-group date">
 							  	<label>Hasta</label>
 							  	<input class="form-control" type="date" name="hasta" />
 							</div>

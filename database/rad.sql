@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-03-2015 a las 19:27:55
+-- Tiempo de generación: 11-03-2015 a las 04:17:44
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -90,11 +90,11 @@ CREATE TABLE IF NOT EXISTS `employee` (
 
 INSERT INTO `employee` (`id`, `name`, `birthday`, `slug`, `action_id`, `cedula`, `departament_id`, `hours`, `code`, `fingerprint`, `create_at`, `update_at`) VALUES
 (1, 'Luis Carlos Pinzón', '1997-10-21', 'luis-carlos-pinzon', 2, 24214875, 1, 48, 'L47C26', '', '2015-02-08 18:04:16', '2015-03-08 03:08:40'),
-(2, 'Carmen Maura Peralta', '1997-02-03', 'carmen-maura-peralta', 2, 26474236, 3, NULL, 'C2014M', '', '2015-02-08 18:05:46', '2015-03-08 03:14:47'),
+(2, 'Carmen Maura Peralta', '1997-02-03', 'carmen-maura-peralta', 1, 26474236, 3, NULL, 'C2014M', '', '2015-02-08 18:05:46', '2015-03-11 01:13:32'),
 (3, 'Angel de Jesús Quilarque', '1997-07-23', 'angel-de-jesus-quilarque', 2, 25974120, 1, 28, 'A54895', '', '2015-02-08 18:07:34', '2015-03-08 03:00:05'),
 (4, 'Kevin Alexander Chourio', '1997-01-01', 'kevin-alexander-chourio', 2, 25471369, 4, NULL, 'K14879', '', '2015-02-08 18:08:57', '2015-03-08 03:00:05'),
 (5, 'Elis Alexander Sánchez', '1997-10-12', 'elis-alexander-sanchez', 2, 26148736, 3, NULL, 'E21496', '', '2015-02-08 18:10:56', '2015-03-08 05:47:20'),
-(6, 'Armando Daniel Fernández', '1996-10-13', 'armando-daniel-fernandez', 2, 24228586, 1, 24, 'A21215', '', '2015-02-08 18:12:53', '2015-03-08 05:58:02');
+(6, 'Armando Daniel Fernández', '1996-10-13', 'armando-daniel-fernandez', 2, 24228586, 1, 24, 'A21215', '', '2015-02-08 18:12:53', '2015-03-11 02:50:09');
 
 -- --------------------------------------------------------
 
@@ -174,9 +174,9 @@ CREATE TABLE IF NOT EXISTS `report` (
   `date` date NOT NULL,
   `action_id` int(11) NOT NULL,
   `employee_id` int(11) NOT NULL,
-  `create_at` datetime NOT NULL,
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `report`
@@ -188,7 +188,16 @@ INSERT INTO `report` (`id`, `hour`, `date`, `action_id`, `employee_id`, `create_
 (12, '06:03:47', '2015-03-08', 1, 5, '2015-03-08 00:00:00', '2015-03-08 05:47:17'),
 (13, '06:03:47', '2015-03-08', 2, 5, '2015-03-08 00:00:00', '2015-03-08 05:47:20'),
 (14, '06:03:56', '2015-03-08', 1, 6, '2015-03-08 00:00:00', '2015-03-08 05:56:26'),
-(15, '06:03:58', '2015-03-08', 2, 6, '2015-03-08 00:00:00', '2015-03-08 05:58:03');
+(15, '06:03:58', '2015-03-08', 2, 6, '2015-03-08 00:00:00', '2015-03-08 05:58:03'),
+(16, '07:03:38', '2015-03-10', 1, 2, '2015-03-10 00:00:00', '2015-03-11 00:08:48'),
+(17, '07:03:38', '2015-03-10', 2, 2, '2015-03-10 00:00:00', '2015-03-11 00:08:56'),
+(18, '07:03:39', '2015-03-10', 1, 2, '2015-03-10 00:00:00', '2015-03-11 00:09:02'),
+(19, '07:03:39', '2015-03-10', 2, 2, '2015-03-10 00:00:00', '2015-03-11 00:09:07'),
+(20, '08:03:43', '2015-03-10', 1, 2, '2015-03-10 00:00:00', '2015-03-11 01:13:15'),
+(21, '08:03:43', '2015-03-10', 2, 2, '2015-03-10 00:00:00', '2015-03-11 01:13:23'),
+(22, '08:03:43', '2015-03-10', 1, 2, '2015-03-10 00:00:00', '2015-03-11 01:13:32'),
+(23, '10:03:20', '2015-03-10', 1, 6, '2015-03-10 00:00:00', '2015-03-11 02:50:03'),
+(24, '10:03:20', '2015-03-10', 2, 6, '2015-03-10 00:00:00', '2015-03-11 02:50:09');
 
 -- --------------------------------------------------------
 
@@ -206,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `slug` varchar(255) DEFAULT NULL,
   `create_at` datetime NOT NULL,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `user`
@@ -217,7 +226,8 @@ INSERT INTO `user` (`id`, `image`, `username`, `name`, `right_id`, `password`, `
 (3, NULL, 'aalehidalgo2', 'Alexandra Hidalgo', 0, '1234', 'alexandra-hidalgo', '2015-02-08 18:18:45', '2015-03-06 05:19:47'),
 (4, NULL, 'estebanquito2', 'Esteban Rosales', 0, '20162504', 'esteban-rosales', '2015-02-28 22:46:42', '2015-03-01 03:30:04'),
 (5, NULL, 'hecto9321', 'Hector Jose ', 0, '20162504', 'hector-jose', '2015-02-28 22:53:00', '2015-03-01 03:30:16'),
-(6, NULL, 'murloc22', 'Illidan Tempestira', 0, 'rawr23', 'illidan-tempestira', '2015-03-01 22:02:28', '2015-03-06 22:04:10');
+(6, NULL, 'murloc22', 'Illidan Tempestira', 0, 'rawr23', 'illidan-tempestira', '2015-03-01 22:02:28', '2015-03-06 22:04:10'),
+(7, NULL, 'oriru92', 'Oriana Ruiz', 0, '21032766', 'oriana-ruiz', '0000-00-00 00:00:00', '2015-03-08 19:21:45');
 
 --
 -- Índices para tablas volcadas
@@ -309,12 +319,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `report`
 --
 ALTER TABLE `report`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- Restricciones para tablas volcadas
 --

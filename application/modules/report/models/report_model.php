@@ -30,7 +30,7 @@ class Report_model extends CI_Model {
 	
 	function getMonthlyReport($month)
 	{
-		$sentence = "SELECT * FROM report JOIN employee ON employee.id = report.employee_id where month(report.date) = $month;";
+		$sentence = "SELECT * FROM report where month(report.date) = $month";
 		$query = $this->db->query($sentence);
 		return $query->result();
 	}

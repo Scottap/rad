@@ -46,6 +46,8 @@ class Report extends MX_Controller {
 		foreach ($report as $key => $value) 
 		{
 			$report[$key]['departament'] = modules::run('employee/getDepartamentById', $report[$key]['employee_id']);
+			$report[$key]['name'] = modules::run('employee/getNameById', $report[$key]['employee_id']);
+			$report[$key]['cedula'] = modules::run('employee/getCedulaById', $report[$key]['employee_id']);
 		}
 		return $report;
 	}
@@ -93,6 +95,61 @@ class Report extends MX_Controller {
        	return $mes;
 	}
 
+	function getMonthNumber($month)
+	{
+		switch ($month) {
+		    case 'Enero':
+		        $mes = 1;
+		        return $mes;
+		        break;
+		    case 'Febrero':
+		        $mes = 2;
+		        return $mes;
+		        break;
+		    case 'Marzo':
+		        $mes = 3;
+		        return $mes;
+		        break;
+		    case 'Abril':
+		        $mes = 4;
+		        return $mes;
+		        break;
+		    case 'Mayo':
+		        $mes = 5;
+		        return $mes;
+		        break;
+		    case 'Junio':
+		        $mes = 6;
+		        return $mes;
+		        break;
+		    case 'Julio':
+		        $mes = 7;
+		        return $mes;
+		        break;
+		    case 'Agosto':
+		        $mes = 8;
+		        return $mes;
+		        break;
+		    case 'Septiembre':
+		        $mes = 9;
+		        return $mes;
+		        break;
+		   	case 'Octubre':
+		        $mes = 10;
+		        return $mes;
+		        break;
+		    case 'Noviembre':
+		        $mes = 11;
+		        return $mes;
+		        break;
+		    case 'Diciembre':
+		        $mes = 12;
+		        return $mes;
+		        break;
+       	}
+     
+	}
+
 	function existCedula()
 	{
 		$cedula = $this->input->post('cedula');
@@ -131,7 +188,8 @@ class Report extends MX_Controller {
 					$month = $this->input->post('month');
 					$data['report'] = $this->getMonthlyReport($month);
 					$data['title'] = 'Backend - Reportes';
-					$data['month'] = $this->getMonth($month);
+					$data['month_name'] = $this->getMonth($month);
+					$data['month'] = $month;
 					//die_pre($data);
 					$data['contenido_principal'] = $this->load->view('monthly-report', $data, true);
 					$this->load->view('back/template', $data);
@@ -194,7 +252,10 @@ class Report extends MX_Controller {
 
 	public function downloadReportMonthly()
 	{
-		$data['report'] = $this->getMonthlyReport($month);
+		$m=$this->uri->segment(3);
+		$data['month'] = $this->getMonthNumber($m);
+		$data['month_name'] = $this->getMonth($m);
+		$data['report'] = $this->getMonthlyReport($m);
 		$data['contenido_principal'] = $this->load->view('download-monthly', $data, true);
 		$this->dompdf->set_base_path(realpath(base_url().'assets/back/css'));
 		$this->dompdf->load_html($data['contenido_principal']);
