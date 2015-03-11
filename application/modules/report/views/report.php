@@ -2,7 +2,7 @@
 	<div class="col-md-10 col-md-offset-1">		   	
 	   	<form class="form-login" action="reportes/exportar" method="POST">
 			<h2 class="text-center"><span class="icon-calendar"></span> Reporte</h2>
-	  		<div class="form-group" action="reporte/exportar">
+	  		<div class="form-group">
 	  			<label><strong>Tipo de reporte</strong></label>
 	  		</div>
 	  		<div class="radio">
@@ -45,13 +45,12 @@
 				<label>
 					<input class="employees" type="radio" name="typeReport" id="optionsRadios3" value="employee">
 					Por empleado						
-					<div class="">
-						<form class>
+					<div>
 							<div class="form-group">
 								<label>Cedula</label>
-								<input class="form-control" type="text" name="cedula">
+								<input class="form-control" type="text" name="cedula"/>
 							</div> 
-							</div class="form-group date">
+							<div class="form-group date">
 							  	<label>Desde</label>
 							  	<input class="form-control" type="date" name="desde" />
 							</div>
@@ -59,7 +58,6 @@
 							  	<label>Hasta</label>
 							  	<input class="form-control" type="date" name="hasta" />
 							</div>
-						</form>
 					</div>
 				</label>
 			</div>
